@@ -28,7 +28,7 @@
                   <h3>{{ $item->item_name }}</h3>
               <span>TK. {{ $item->item_price }}</span>
               </div>
-              <div class="text-center mt-2">
+              <div class="mt-2 ml-2">
                 <span style="font-size: larger;"><?=stripslashes($item->item_description)?> </span>
               </div>
             </div>
