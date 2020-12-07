@@ -35,7 +35,7 @@
           <ul class="treeview-menu">
               <li class="{{ Request::is('admin/categories/display') ? 'active' : '' }} {{ Request::is('admin/categories/add') ? 'active' : '' }} {{ Request::is('admin/categories/edit/*') ? 'active' : '' }} {{ Request::is('admin/categories/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/categories/display')}}"><i class="fa fa-circle-o"></i> Categories</a></li>
 
-              <li class="{{ Request::is('admin/menuitems/extras/display') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/add') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/edit/*') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/menuitems/extras/display')}}"><i class="fa fa-circle-o"></i> Extras</a></li>
+              {{-- <li class="{{ Request::is('admin/menuitems/extras/display') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/add') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/edit/*') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/menuitems/extras/display')}}"><i class="fa fa-circle-o"></i> Extras</a></li> --}}
               
               <li class="{{ Request::is('admin/menuitems/display') ? 'active' : '' }} {{ Request::is('admin/menuitems/add') ? 'active' : '' }} {{ Request::is('admin/menuitems/edit/*') ? 'active' : '' }} {{ Request::is('admin/menuitems/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/menuitems/display')}}"><i class="fa fa-circle-o"></i> Menuitems</a></li>
           </ul>
