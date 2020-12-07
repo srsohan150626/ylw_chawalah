@@ -107,8 +107,8 @@
         window.mySwipe = new Swipe(element, {
             startSlide: 0,
             speed: 1000,
-            auto: 6000,
-            draggable: false,
+            auto: false,
+            draggable: true,
             continuous: false,
             autoRestart: false,
             disableScroll: false, // prevent touch events from scrolling the page
