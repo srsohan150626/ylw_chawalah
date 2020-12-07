@@ -117,8 +117,9 @@
 
         }
 
-        $(window).load(function(){
-                centerLoader();
+
+        $(window).on('load', function(){
+            centerLoader();
               $(window).resize(function(){
                 centerLoader();
               });

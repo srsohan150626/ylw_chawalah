@@ -57,6 +57,7 @@
     </style>
     @endpush
     @section('contents')
+    <div id="fakeLoader"></div>
     <div class="bg">
         <div class="">
         
@@ -118,6 +119,16 @@
             
         });
     </script>
+    <script type="text/javascript">
+
+            $("#fakeLoader").fakeLoader({
+                    timeToHide: 1000, //Time in milliseconds for fakeLoader disappear
+                    zIndex: 999, // Default zIndex
+                    spinner: "spinner6", //Options: 'spinner1', 'spinner2', 'spinner3', 'spinner4', 'spinner5', 'spinner6', 'spinner7' 
+                    bgColor: "#000000", //Hex, RGB or RGBA colors
+                    // imagePath:"../img/coyaiconforgif_17__2_.gif" //If you want can you insert your custom image
+                });
+         </script>
     @endpush
     @endsection
     

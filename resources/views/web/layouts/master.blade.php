@@ -21,9 +21,11 @@
     <script src="{{asset('web/js/swipe.js')}}"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{asset('web/js/fakeloader.js')}}"></script>
 @stack('style')
 </head>
 <body>
+    
     @yield('contents')
 
     @stack('scripts')
