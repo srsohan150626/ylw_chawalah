@@ -40,8 +40,19 @@
               <li class="{{ Request::is('admin/menuitems/display') ? 'active' : '' }} {{ Request::is('admin/menuitems/add') ? 'active' : '' }} {{ Request::is('admin/menuitems/edit/*') ? 'active' : '' }} {{ Request::is('admin/menuitems/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/menuitems/display')}}"><i class="fa fa-circle-o"></i> Menuitems</a></li>
           </ul>
         </li>
-        
-        
+
+          <li class="treeview {{ Request::is('admin/admins') ? 'active' : '' }} {{ Request::is('admin/addadmins') ? 'active' : '' }} {{ Request::is('admin/editadmin/*') ? 'active' : '' }} {{ Request::is('admin/manageroles') ? 'active' : '' }} {{ Request::is('admin/addadminType') ? 'active' : '' }} {{ Request::is('admin/editadminType/*') ? 'active' : '' }}">
+          <a href="#">
+            <i class="fa fa-users" aria-hidden="true"></i>
+              <span> {{ trans('labels.Manage Admins') }}</span> <i class="fa fa-angle-left pull-right"></i>
+          </a>
+
+          <ul class="treeview-menu">
+            <li class="{{ Request::is('admin/admins') ? 'active' : '' }} {{ Request::is('admin/addadmins') ? 'active' : '' }} {{ Request::is('admin/editadmin/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/admins')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.link_admins') }}</a></li>
+            <li class="{{ Request::is('admin/manageroles') ? 'active' : '' }} {{ Request::is('admin/addadminType') ? 'active' : '' }} {{ Request::is('admin/editadminType/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/manageroles')}}"><i class="fa fa-circle-o"></i> {{ trans('labels.link_manage_roles') }}</a></li>
+          </ul>
+        </li>
+    
       </ul>
     </section>
     <!-- /.sidebar -->

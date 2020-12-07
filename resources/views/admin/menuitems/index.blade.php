@@ -25,7 +25,7 @@
                                 <br>
                            <div class="col-lg-10 form-inline">
 
-                                <form  name='registration' id="registration" class="registration" method="get">
+                           <form action="{{route('menuitems.display')}}"  name='registration' id="registration" class="registration" method="get">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                                     <div class="input-group-form search-panel ">
@@ -33,7 +33,7 @@
 
                                             <option value="" selected disabled hidden>{{trans('labels.ChooseCategory')}}</option>
                                             @foreach ($results['categories'] as  $key=>$categories)
-                                                <option value="{{ $categories->id }}"
+                                                <option value="{{ $categories->categories_id }}"
                                                         @if(isset($_REQUEST['categories_id']) and !empty($_REQUEST['categories_id']))
                                                           @if( $categories->categories_id == $_REQUEST['categories_id'])
                                                             selected
@@ -44,7 +44,7 @@
                                         </select>
                                         <input type="text" class="form-control input-group-form " name="item" placeholder="Search term..." id="parameter"  @if(isset($item)) value="{{$item}}" @endif />
                                         <button class="btn btn-primary " id="submit" type="submit"><span class="glyphicon glyphicon-search"></span></button>
-                                        @if(isset($product,$categories_id))  <a class="btn btn-danger " href="{{url('admin/menuitems/display')}}"><i class="fa fa-ban" aria-hidden="true"></i> </a>@endif
+                                        {{-- @if(isset($product,$categories_id))  <a class="btn btn-danger " href="{{url('admin/menuitems/display')}}"><i class="fa fa-ban" aria-hidden="true"></i> </a>@endif --}}
                                     </div>
                                 </form>
                                 <div class="col-lg-4 form-inline" id="contact-form12"></div>
@@ -84,7 +84,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if(count($results['menuitems'])>0)
+                                        @if($results['tot_item']>0)
                                             @php  $resultsItem = $results['menuitems']->unique('item_id')->keyBy('item_id');  @endphp
                                             @foreach ($results['menuitems'] as  $key=>$item)
                                                 <tr>
@@ -101,9 +101,6 @@
                                                         <strong>{{ trans('labels.Price') }}: </strong>   
                                                         {{ $item->item_price }}
                                                         <br>
-                                                        @if(!empty($item->items_addons_id))
-                                                            <strong class="badge bg-light-blue">Have Addons</strong><br>
-                                                        @endif
                                                         @if ($item->is_new==1)
                                                         <strong class="badge bg-light-green">New Item</strong><br>
                                                         @endif
@@ -112,10 +109,6 @@
                                                     <td>
                                                       <a class="btn btn-primary" style="width: 100%; margin-bottom: 5px;" href="{{url('admin/menuitems/edit')}}/{{ $item->item_id }}">Edit</a>
                                                       </br>
-                                                      @if($item->items_addons_id>0)
-                                                          <a class="btn btn-info" style="width: 100%;  margin-bottom: 5px;" href="{{url('admin/menuitems/addons/display')}}/{{ $item->item_id }}">Addons</a>
-                                                          </br>
-                                                      @endif
                                                       <a class="btn btn-danger" style="width: 100%;  margin-bottom: 5px;" id="deleteProductId" products_id="{{ $item->item_id }}">Delete</a>
                                                       </td>
                                                 </tr>

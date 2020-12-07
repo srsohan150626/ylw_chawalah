@@ -1,9 +1,10 @@
 <?php
 
 Route::get('/','HomeController@index');
+Route::get('/menu/{id}','HomeController@menudetails');
 
 Route::group(['namespace' => 'AdminControllers', 'prefix' => 'admin'], function () {
-    Route::get('/login', 'AdminController@login');
+    Route::get('/login', 'AdminController@login')->name('login');
     Route::post('/checkLogin', 'AdminController@checkLogin');
     
 });
@@ -15,7 +16,6 @@ Route::group(['namespace' => 'AdminControllers', 'middleware' => 'auth', 'prefix
     Route::get('/dashboard', 'AdminController@dashboard');
 });
 
-
 Route::group(['prefix' => 'admin/media', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
     Route::get('/display', 'MediaController@display');
     Route::get('/add', 'MediaController@add');
@@ -25,8 +25,6 @@ Route::group(['prefix' => 'admin/media', 'middleware' => 'auth', 'namespace' => 
     Route::get('/refresh', 'MediaController@refresh');
     Route::post('/regenerateimage', 'MediaController@regenerateimage');
 });
-
-
 
 Route::group(['prefix' => 'admin/categories', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
     Route::get('/display', 'CategoriesController@display');
@@ -40,7 +38,7 @@ Route::group(['prefix' => 'admin/categories', 'middleware' => 'auth', 'namespace
 
 
 Route::group(['prefix' => 'admin/menuitems', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
-    Route::get('/display', 'MenuItemsController@display');
+    Route::get('/display', 'MenuItemsController@display')->name('menuitems.display');
     Route::get('/add', 'MenuItemsController@add');
     Route::post('/add', 'MenuItemsController@insert');
     Route::get('/edit/{id}', 'MenuItemsController@edit');
@@ -68,5 +66,32 @@ Route::group(['prefix' => 'admin/menuitems', 'middleware' => 'auth', 'namespace'
             Route::post('/delete', 'MenuItemsController@deletedefaultattribute');
     });
     
+
+});
+
+Route::group(['prefix' => 'admin/admin', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
+    Route::get('/profile', 'AdminController@profile');
+    Route::post('/update', 'AdminController@update');
+    Route::post('/updatepassword', 'AdminController@updatepassword');
+});
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
+//admin managements
+Route::get('/admins', 'AdminController@admins')->middleware('view_manage_admin');
+Route::get('/addadmins', 'AdminController@addadmins')->middleware('add_manage_admin');
+Route::post('/addnewadmin', 'AdminController@addnewadmin')->middleware('add_manage_admin');
+Route::get('/editadmin/{id}', 'AdminController@editadmin')->middleware('edit_manage_admin');
+Route::post('/updateadmin', 'AdminController@updateadmin')->middleware('edit_manage_admin');
+Route::post('/deleteadmin', 'AdminController@deleteadmin')->middleware('delete_manage_admin');
+
+//admin managements
+Route::get('/manageroles', 'AdminController@manageroles')->middleware('manage_role');
+Route::get('/addrole/{id}', 'AdminController@addrole')->middleware('manage_role');
+Route::post('/addnewroles', 'AdminController@addnewroles')->middleware('manage_role');
+Route::get('/addadmintype', 'AdminController@addadmintype')->middleware('add_admin_type');
+Route::post('/addnewtype', 'AdminController@addnewtype')->middleware('add_admin_type');
+Route::get('/editadmintype/{id}', 'AdminController@editadmintype')->middleware('edit_admin_type');
+Route::post('/updatetype', 'AdminController@updatetype')->middleware('edit_admin_type');
+Route::post('/deleteadmintype', 'AdminController@deleteadmintype')->middleware('delete_admin_type');
 
 });

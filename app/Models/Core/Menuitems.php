@@ -16,62 +16,6 @@ class Menuitems extends Model
     public $sortable =['item_id','updated_at'];
     public $sortableAs =['categories_name','item_name'];
 
-	public function paginator($request){
-        $setting = new Setting();
-
-        $categories_id = $request->categories_id;
-        $product  = $request->product;
-        $results = array();
-        $data = $this->sortable(['item_id'=>'DESC'])
-            ->LeftJoin('items_addons', function ($join) {
-                $join->on('items_addons.item_id', '=', 'menuitems.item_id')->where('items_addons.addons_status', '=', '1');
-            })
-            ->LeftJoin('extraoptions', function ($join) {
-                $join->on('extraoptions.extra_options_id', '=', 'items_addons.extra_options_id')->where('extraoptions.extra_options_status', '=', '1');
-            })
-            ->LeftJoin('image_categories', function ($join) {
-                $join->on('image_categories.image_id', '=', 'menuitems.item_image')
-                    ->where(function ($query) {
-                        $query->where('image_categories.image_type', '=', 'THUMBNAIL')
-                            ->where('image_categories.image_type', '!=', 'THUMBNAIL')
-                            ->orWhere('image_categories.image_type', '=', 'ACTUAL');
-                    });
-            });
-
-        $data->leftJoin('itemsto_categories', 'menuitems.item_id', '=', 'itemsto_categories.item_id')
-            ->leftJoin('categories', 'categories.categories_id', '=', 'itemsto_categories.categories_id')
-            ->leftJoin('categories_description', 'categories.categories_id', '=', 'categories_description.categories_id');
-
-        $data->select('menuitems.*', 'items_addons.*', 'extraoptions.*', 'image_categories.path as path','categories_description.categories_id','categories_description.categories_name');
-
-        if (isset($_REQUEST['categories_id']) and !empty($_REQUEST['categories_id'])) {
-            if (!empty(session('categories_id'))) {
-                $cat_array = explode(',', session('categories_id'));
-                $data->whereIn('itemsto_categories.categories_id', '=', $cat_array);
-            }
-
-            $data->where('itemsto_categories.categories_id', '=', $_REQUEST['categories_id']);
-
-            if (isset($_REQUEST['item']) and !empty($_REQUEST['item'])) {
-                $data->where('item_name', 'like', '%' . $_REQUEST['item'] . '%');
-            }
-
-            $menuitems = $data->orderBy('menuitems.item_id', 'DESC')
-            ->where('categories_status', '1')->paginate(30);
-
-        } else {
-
-            if (!empty(session('categories_id'))) {
-                $cat_array = explode(',', session('categories_id'));
-                $data->whereIn('itemsto_categories.categories_id', $cat_array);
-            }
-            $menuitems = $data->orderBy('menuitems.item_id', 'DESC')
-            ->where('categories_status', '1')
-            ->paginate(30);
-        }
-
-        return $menuitems;
-    }
 
     public function insert($request){
 
@@ -92,7 +36,7 @@ class Menuitems extends Model
             'item_slug' => 0,
             'is_new' => $request->is_new,
             'item_description' => $request->item_description,
-            'item_type' => $request->item_type
+            'item_type' => 0,
         ]);
     
         $slug_flag = false;
@@ -221,21 +165,48 @@ public function edit($request){
         ->get();
     $result['item'] = $item;
 
-    $categories = DB::table('itemsto_categories')
+    $itemsto_categories = DB::table('itemsto_categories')
         ->leftJoin('categories', 'categories.categories_id', '=', 'itemsto_categories.categories_id')
         ->leftJoin('categories_description', 'categories_description.categories_id', '=', 'categories.categories_id')
         ->where('item_id', '=', $item_id)
         ->where('categories_status', '1')
         ->get();
 
-    $result['categories'] = $categories;
-
-    $addons = DB::table('items_addons')->where('item_id', $item_id)->orderby('items_addons_id', 'desc')->get();
-    $result['addons'] = $addons;
+    $result['itemsto_categories'] = $itemsto_categories;
 
     return $result;
   }
 
+  public function updaterecord($request)
+  {
+    $item_id      =   $request->id;
+    $item_last_modified	= date('Y-m-d h:i:s');
+    
+    if($request->image_id !== null){
+        $uploadImage = $request->image_id;
+    }else{
+        $uploadImage = $request->oldImage;
+    }
+
+    $item_id = DB::table('menuitems')->where('item_id', '=', $item_id)->update([
+        'item_image' => $uploadImage,
+        'item_name' => $request->item_name,
+        'item_price' => $request->item_price,
+        'item_last_modified' => $item_last_modified,
+        'item_status' => $request->item_status,
+        'is_new' => $request->is_new,
+        'item_description' => $request->item_description
+    ]);
+
+    DB::table('itemsto_categories')->where('item_id', '=', $item_id)
+        ->update([
+          'categories_id' => $request->categories_id
+      ]);
+
+      return $item_id;
+
+
+  }
  // slugify method
  public function slugify($slug)
  {

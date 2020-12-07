@@ -3,11 +3,11 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1> Add Menuitems <small>Add Menuitems...</small> </h1>
+        <h1> Edit Menuitems <small>Edit Menuitems...</small> </h1>
         <ol class="breadcrumb">
             <li><a href="{{ URL::to('admin/dashboard') }}"><i class="fa fa-dashboard"></i> {{ trans('labels.breadcrumb_dashboard') }}</a></li>
             <li><a href="{{ URL::to('admin/menuitems/display')}}"><i class="fa fa-database"></i> Listing all Menuitems</a></li>
-            <li class="active">Add Menuitems</li>
+            <li class="active">Edit Menuitems</li>
         </ol>
     </section>
 
@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header">
-                        <h3 class="box-title">Add Menuitems </h3>
+                        <h3 class="box-title">Edit Menuitems </h3>
                     </div>
 
                     <!-- /.box-header -->
@@ -37,8 +37,8 @@
                                         @endforeach
                                         @endif
 
-                                        {!! Form::open(array('url' =>'admin/menuitems/add', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')) !!}
-
+                                        {!! Form::open(array('url' =>'admin/menuitems/update', 'method'=>'post', 'class' => 'form-horizontal form-validate', 'enctype'=>'multipart/form-data')) !!}
+                                        {!! Form::hidden('id', $result['item'][0]->item_id, array('class'=>'form-control', 'id'=>'id')) !!}
                                         <div class="row">
                                             
                                                <div class="col-xs-12 col-md-6">
@@ -48,7 +48,9 @@
                                                             <select class="form-control" name="categories_id">
                                                                 <option value="">Select Category</option>
                                                                 @foreach ($result['categories'] as $categories)
-                                                                <option value="{{ $categories->categories_id }}">{{ $categories->categories_slug }}</option>
+                                                                <option @if($result['itemsto_categories'][0]->categories_id == $categories->categories_id )
+                                                                    selected
+                                                                    @endif value="{{ $categories->categories_id }}" >{{ $categories->categories_slug }}</option>
                                                                 @endforeach
                                                             </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                                 Choose category at least one category.</span>
@@ -78,7 +80,7 @@
                                                 <div class="form-group">
                                                     <label for="name" class="col-sm-2 col-md-3 control-label">Item Name<span style="color:red;">*</span></label>
                                                     <div class="col-sm-10 col-md-8">
-                                                        {!! Form::text('item_name', '', array('class'=>'form-control', 'id'=>'item_name')) !!}
+                                                        {!! Form::text('item_name', $result['item'][0]->item_name, array('class'=>'form-control', 'id'=>'item_name')) !!}
                                                         <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                             {{ trans('labels.ProductPriceText') }}
                                                         </span>
@@ -91,7 +93,7 @@
                                                 <div class="form-group">
                                                     <label for="name" class="col-sm-2 col-md-3 control-label">Item Price<span style="color:red;">*</span></label>
                                                     <div class="col-sm-10 col-md-8">
-                                                        {!! Form::text('item_price', '', array('class'=>'form-control number-validate', 'id'=>'item_price')) !!}
+                                                        {!! Form::text('item_price', $result['item'][0]->item_price, array('class'=>'form-control number-validate', 'id'=>'item_price')) !!}
                                                         <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                             {{ trans('labels.ProductPriceText') }}
                                                         </span>
@@ -152,6 +154,13 @@
 
                                                     </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label for="name" class="col-sm-2 col-md-3 control-label"></label>
+                                                    <div class="col-sm-10 col-md-4">
+                                                        {!! Form::hidden('oldImage', $result['item'][0]->item_image , array('id'=>'oldImage', 'class'=>'field-validate ')) !!}
+                                                        <img src="{{asset($result['item'][0]->path)}}" alt="" width=" 100px">
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="col-xs-12 col-md-6">
@@ -159,8 +168,8 @@
                                                     <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Status') }} </label>
                                                     <div class="col-sm-10 col-md-8">
                                                         <select class="form-control" name="item_status" required>
-                                                            <option value="1">{{ trans('labels.Active') }}</option>
-                                                            <option value="0">{{ trans('labels.Inactive') }}</option>
+                                                            <option  @if ($result['item'][0]->item_status==1) selected @endif value="1">{{ trans('labels.Active') }}</option>
+                                                            <option @if ($result['item'][0]->item_status==0) selected @endif value="0">{{ trans('labels.Inactive') }}</option>
                                                         </select>
                                                         <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                             {{ trans('labels.SelectStatus') }}</span>
@@ -176,8 +185,8 @@
                                                     <div class="col-sm-10 col-md-8">
                                                         <select class="form-control field-validate prodcust-type" name="is_new">
                                                             <option value="">Choose</option>
-                                                            <option value="1">Yes</option>
-                                                            <option value="0">No</option>
+                                                            <option @if ($result['item'][0]->is_new==1) selected @endif value="1">Yes</option>
+                                                            <option @if ($result['item'][0]->is_new==0) selected @endif value="0">No</option>
                                                         </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                             Please choose 'yes' to set new with this item..</span>
                                                     </div>
@@ -203,7 +212,7 @@
                                                                 <div class="form-group">
                                                                     <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Description') }}<span style="color:red;">*</span> (English)</label>
                                                                     <div class="col-sm-10 col-md-8">
-                                                                        <textarea id="editor" name="item_description" class="form-control" rows="5"></textarea>
+                                                                        <textarea id="editor" name="item_description" class="form-control" rows="5"><?=stripslashes($result['item'][0]->item_description)?></textarea>
                                                                         <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                                             Enter Item description in English</span>
                                                                     </div>

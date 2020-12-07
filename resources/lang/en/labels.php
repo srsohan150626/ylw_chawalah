@@ -1191,6 +1191,7 @@ return [
 	'OrderStatusNotficationMessagePart1' => 'Your order status of order no.',
 	'OrderStatusNotificationMessagePart2' => 'has been changed to ',
 	'ProducthasbeendeletedMessage'=>'Product has been deleted successfully!',
+	'ProducthasbeenupdatedMessage'=>'Product has been Updated successfully!',
 	'optionhasbeenupdatedMessage'=>'Option has been updated successfully!',
 	'OptionhasbeendeletedMessage'=>'Option has been deleted successfully!',
 	'OptionhasbeenaddedMessage'=>'Option has been added successfully!',

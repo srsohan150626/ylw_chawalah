@@ -412,6 +412,7 @@ $(document).on('click', '.checkboxess', function(e){
 	//deleteproductmodal
 	$(document).on('click', '#deleteProductId', function(){
 		var products_id = $(this).attr('products_id');
+		//alert(products_id);
 		$('#products_id').val(products_id);
 		$("#deleteproductmodal").modal('show');
 	});
@@ -712,22 +713,27 @@ $(document).on('click','#change-passowrd', function(){
 	}
 });
 
+	//deleteCustomerModal
+	$(document).on('click', '#deleteCustomerFrom', function(){
+		var users_id = $(this).attr('users_id');
+		$('#users_id').val(users_id);
+		$("#deleteCustomerModal").modal('show');
+	});
+// $( "#registration" ).on('click','#submit',function( event ) {
 
-$( "#registration" ).on('click','#submit',function( event ) {
+//   var param =  $( "#parameter" ).val();
+//   var select = $( "#FilterBy" ).val();
 
-  var param =  $( "#parameter" ).val();
-  var select = $( "#FilterBy" ).val();
-
-        if( (select == null) || (param == "")) {
-            $( "#contact-form12" ).text( "fill the credentials!" ).css({'color':'red'}).show().fadeOut( 10000 );
-            $( "#parameter" ).css({'border-color':'red'});
-            $( "select" ).css({'border-color':'red'});
-            event.preventDefault();
-        }else {
-          // $( "#contact-form12" ).text( "fill the credentials!" ).css({'padding-left':'10px','margin-right':'20px','padding-bottom':'2px', 'color':'red'}).show().fadeOut( 10000 );
-          //     event.preventDefault();
-        }
-});
+//         if( (select == null) || (param == "")) {
+//             $( "#contact-form12" ).text( "fill the credentials!" ).css({'color':'red'}).show().fadeOut( 10000 );
+//             $( "#parameter" ).css({'border-color':'red'});
+//             $( "select" ).css({'border-color':'red'});
+//             event.preventDefault();
+//         }else {
+//           // $( "#contact-form12" ).text( "fill the credentials!" ).css({'padding-left':'10px','margin-right':'20px','padding-bottom':'2px', 'color':'red'}).show().fadeOut( 10000 );
+//           //     event.preventDefault();
+//         }
+// });
 
 
 Dropzone.options.myDropzone = {
