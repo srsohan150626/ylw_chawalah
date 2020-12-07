@@ -61,6 +61,15 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'view_manage_admin' => \App\Http\Middleware\manage_admin\view_manage_admin::class,
+        'edit_manage_admin' => \App\Http\Middleware\manage_admin\edit_manage_admin::class,
+        'delete_manage_admin' => \App\Http\Middleware\manage_admin\delete_manage_admin::class,
+        'add_manage_admin' => \App\Http\Middleware\manage_admin\add_manage_admin::class,
+        'view_admin_type' => \App\Http\Middleware\admin_type\view_admin_type::class,
+        'edit_admin_type' => \App\Http\Middleware\admin_type\edit_admin_type::class,
+        'delete_admin_type' => \App\Http\Middleware\admin_type\delete_admin_type::class,
+        'add_admin_type' => \App\Http\Middleware\admin_type\add_admin_type::class,
+        'manage_role' => \App\Http\Middleware\manage_role\manage_role::class,
     ];
 
     /**
