@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/','HomeController@index');
+Route::get('/menucategory','HomeController@list');
 Route::get('/menu/{id}','HomeController@menudetails');
 
 Route::group(['namespace' => 'AdminControllers', 'prefix' => 'admin'], function () {

@@ -9,7 +9,7 @@
         <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
     </div>
     <div class="dttopright">
-    <a href="{{url('/')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_03_1604995966.png')}}"/></a>
+    <a href="{{url('/menucategory')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_03_1604995966.png')}}"/></a>
     </div>
     <div class="dttoprightbottom">
       <a href="{{url('/')}}"><img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}"/></a>

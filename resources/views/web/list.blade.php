@@ -76,17 +76,7 @@
     
         <div id="mySwipe" class="swipe resslider">
             <div class="swipe-wrap">
-            
-                <div class="card " style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title text-center">YELLOW</h5>
-                      <p class="card-text text-center">Swift Left and Watch your Favourite Dishes come to Life.</p>
-                        <br>
-                        <p class="card-text text-center" >All Prices are inclusive 5% VAT,10% Service Charge.</p>
-                    </div>
-                  </div>
-                
-              
+
                   <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush text-center">
                         @foreach ($categories as $item)
