@@ -1,5 +1,5 @@
 @extends('web.layouts.master')
-@push('scripts')
+@push('style')
     <style>
       
       .transprnt{
@@ -118,6 +118,8 @@
         }
        
       });
+    //  var some= $('.swiper-slide-active img').attr('src');
+    //  console.log(some);
     </script>
   @endpush
 @endsection

@@ -90,8 +90,8 @@ font-size: 18px;
     }
 
     .swiper-slide {
-      font-size: 18px;
- 
+      /* font-size: 18px;
+  */
       /* Center slide text vertically */
       display: -webkit-box;
       display: -ms-flexbox;
@@ -121,4 +121,5 @@ font-size: 18px;
 }
 .uprcse{
   text-transform: uppercase;
+  text-shadow: 1px 1px;
 }

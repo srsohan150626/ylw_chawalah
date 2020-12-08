@@ -74,21 +74,21 @@
         <div id="mySwipe" class="swipe resslider">
             <div class="swipe-wrap ">
 
-                <div class="card " style="width: 18rem; opacity: 0.9;">
+                <div class="card " style="width: 18rem; opacity: 0.8;">
                     @foreach ($categories as $item)
                     <span class="text-center vrr mt-3"><a href="{{url('/menu/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
                     @endforeach
                     <br>
               </div>
 
-                <div class="card next" style="width: 18rem; opacity: 0.9;">
+                <div class="card next" style="width: 18rem; opacity: 0.8;">
                    
                     <div class="card-body">
                         <br>
                       <h3 class="card-title text-center gza"> <b class="gza" style="font-size: larger;">YELLOW</b> </h3>
-                      <p class="card-text text-center vrr">Swipe Left and Watch your Favourite Dishes come to Life.</p>
+                      <p class="card-text text-center vrr">Swipe left and watch your favourite dishes come to life.</p>
                         <br>
-                        <p class="card-text text-center vrr2" >All Prices are inclusive 15% VAT,10% Service Charge.</p>
+                        <p class="card-text text-center vrr2" >All prices are inclusive 15% vat,10% service charge.</p>
                         <br>
                     </div>
                   </div>

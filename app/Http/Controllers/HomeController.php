@@ -41,7 +41,7 @@ class HomeController extends Controller
                     ->where('categories.categories_status',1)
                     ->get();
 
-        return view('web.menudetails',compact('menuitems','tot_item','categories'));
+        return view('web.menu.menudetails',compact('menuitems','tot_item','categories'));
     }
 
     public function list()
@@ -52,6 +52,11 @@ class HomeController extends Controller
                     ->get();
        // dd($categories);
        return view('web.list',compact('categories'));
+    }
+
+    public function menulist($id)
+    {
+        return view('web.menu.menulist');
     }
 
 }
