@@ -7,12 +7,14 @@ src: url('http://coyamenu.app.appery.io/font/VarelaRound-Regular.ttf');
 
 @font-face {
 font-family: GzaTrial-Bold;
-src: url('{{asset('web/font/Gotham-BoldItalic 400.otf')}}');
+src: url('/web/font/Gotham-BoldItalic 400.otf');
+/* src: url('{{asset('web/font/Gotham-BoldItalic 400.otf')}}'); */
 }
 
 @font-face {
 font-family: Raleway-Regular;
-src: url('{{asset('web/font/Raleway-Italic-VariableFont_wght.ttf')}}');
+src: url('/web/font/Raleway-Italic-VariableFont_wght.ttf');
+/* src: url('{{asset('web/font/Raleway-Italic-VariableFont_wght.ttf')}}'); */
 }
 
 .vrr {

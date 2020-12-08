@@ -72,25 +72,28 @@
             </div>
         </div>
     
-        <div id="mySwipe" class="swipe resslider vrr2">
+        <div id="mySwipe" class="swipe resslider">
             <div class="swipe-wrap ">
             
-                <div class="card " style="width: 18rem;">
+                <div class="card " style="width: 18rem; opacity: 0.9;">
+                   
                     <div class="card-body">
-                      <h4 class="card-title text-center"> <b>YELLOW</b> </h4>
-                      <p class="card-text text-center">Swift Left and Watch your Favourite Dishes come to Life.</p>
                         <br>
-                        <p class="card-text text-center" >All Prices are inclusive 5% VAT,10% Service Charge.</p>
+                      <h3 class="card-title text-center gza"> <b class="gza" style="font-size: larger;">YELLOW</b> </h3>
+                      <p class="card-text text-center vrr">Swipe Left and Watch your Favourite Dishes come to Life.</p>
+                        <br>
+                        <p class="card-text text-center vrr2" >All Prices are inclusive 15% VAT,10% Service Charge.</p>
+                        <br>
                     </div>
                   </div>
 
-                  <div class="card next" style="width: 18rem;">
-                    <ul class="list-group list-group-flush text-center">
+                  <div class="card next" style="width: 18rem; opacity: 0.9;">
                         @foreach ($categories as $item)
-                        <li class="list-group-item"><a href="{{url('/menu/'.$item->categories_id)}}"><span style="font-size: 20px;" class="yfont">{{ $item->categories_name }}</span></a> </li>
+                        <span class="text-center vrr mt-3"><a href="{{url('/menu/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
                         @endforeach
-                    </ul>
+                        <br>
                   </div>
+                  
                 </div>
              </div>
         </div>
@@ -110,6 +113,7 @@
             autoRestart: false,
             disableScroll: false, // prevent touch events from scrolling the page
             stopPropagation: false, 
+            autoHeight: true,
             callback: function(index, elem, dir) {},
             transitionEnd: function(index, elem) {}
             

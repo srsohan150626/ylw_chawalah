@@ -43,11 +43,11 @@
           @foreach ($menuitems as $item)
           <div class="swiper-slide">
             <div class="overlay">
-              <a href="{{url('/menucategory')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+              <a href="{{url('/')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
             </div>
 
             <div class="overlayhome">
-              <a href="{{url('/')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
+              <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
             </div>
 
             <div class="overlayone">
@@ -57,49 +57,48 @@
             <div class="" style="top:0px;">
               <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($item->imgpath)}}"/>
               <div class="text-center mt-4">
-                  <h3 class="yfont">{{ $item->item_name }}</h3>
-              <span class="yfont">TK. {{ $item->item_price }}</span>
+                  <h3 class="vrr">{{ $item->item_name }}</h3>
+              <span class="vrr">TK. {{ $item->item_price }}</span>
               </div>
               <div class="mt-2 ml-2 text-center">
-                <span style="font-size: larger;" class="yfont"><?=stripslashes($item->item_description)?> </span>
+                <span style="font-size: larger;" class="vrr"><?=stripslashes($item->item_description)?> </span>
               </div>
             </div>
           </div>
           @endforeach
-          <div class="swiper-slide">
-            <div class="overlay">
-              <a href="{{url('/menucategory')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
-            </div>
+          @include('web.common.catlist')
 
-            <div class="overlayhome">
-              <a href="{{url('/')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
-            </div>
-            <div class="card text-center" style="width: 18rem;top:125px;left:36px;">
-              <ul class="list-group list-group-flush text-center">
-                  @foreach ($categories as $item)
-                  <li class="list-group-item"><a href="{{url('/menu/'.$item->categories_id)}}"><span style="font-size: 20px;" class="yfont">{{ $item->categories_name }}</span></a> </li>
-                  @endforeach
-              </ul>
-            </div>
-          </div>
         </div>
     </div>
-    @else
-      <div class="text-center mt-4">
-        <div class="overlay">
-          <a href="{{url('/menucategory')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
-        </div>
+  @else 
+  <div class="swiper-container ">
+    <div class="swiper-wrapper">
+  <div class="swiper-slide">
+    <div class="text-center mt-4">
+      <div class="overlay">
+        <a href="{{url('/')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
+      </div>
 
-        <div class="overlayhome">
-          <a href="{{url('/')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
-        </div>
-      <img src="{{asset('web/img/oops.jpg')}}" class="img-fluid" style="margin-top: 125px;">
-          <h3 class="yfont">No Items Found for your Selected Menu Category</h3>
-      </div> 
-    @endif
+      <div class="overlayhome">
+        <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+      </div>
+    <img src="{{asset('web/img/oops.jpg')}}" class="img-fluid" style="margin-top: 125px;">
+        <h3 class="vrr">No Items Found for your Selected Menu Category</h3>
+    </div> 
+    </div>
+
+    @include('web.common.catlist')
+
+  </div> 
+</div>
+  @endif
+   
   </div>
 
     @push('scripts')
+    <script>
+      
+    </script>
     <script type="text/javascript">
         var swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
@@ -117,6 +116,7 @@
         pagination: {
           el: '.swiper-pagination',
         }
+       
       });
     </script>
   @endpush
