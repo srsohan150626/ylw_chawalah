@@ -8,7 +8,7 @@
  
     <link href="{{asset('web/Chawalah.css')}}" rel="stylesheet" type="text/css" />
     <link type="text/css" rel="stylesheet" href="{{asset('web/css/fakeloader.css')}}" />
-    <link href="{{asset('web/font/Raleway-Italic-VariableFont_wght.ttf')}}" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="{{asset('web/css/fonts.css')}}" />
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
@@ -23,8 +23,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     {{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
     <script src="{{asset('web/js/fakeloader.js')}}"></script>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    
 
 @stack('style')
 </head>

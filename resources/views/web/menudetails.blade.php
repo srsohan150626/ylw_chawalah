@@ -13,10 +13,10 @@
         left: 0;
         right: 0;
         background: url("{{asset('web/img/tableabove10001499.jpg')}}") center center;
-        opacity: .1;
+        opacity: .2;
         width: 100%;
         /* background-image: url("{{asset('web/img/tableabove10001499.jpg')}}"); */
-        height: 700px;
+        height: 100%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -55,7 +55,7 @@
             </div>
 
             <div class="" style="top:0px;">
-              <img class="img-fluid" style="height: 380px;" src="{{asset($item->imgpath)}}"/>
+              <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($item->imgpath)}}"/>
               <div class="text-center mt-4">
                   <h3 class="yfont">{{ $item->item_name }}</h3>
               <span class="yfont">TK. {{ $item->item_price }}</span>

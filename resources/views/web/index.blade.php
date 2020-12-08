@@ -72,15 +72,15 @@
             </div>
         </div>
     
-        <div id="mySwipe" class="swipe resslider">
+        <div id="mySwipe" class="swipe resslider vrr2">
             <div class="swipe-wrap ">
             
                 <div class="card " style="width: 18rem;">
                     <div class="card-body">
-                      <h4 class="card-title text-center yfont"> <b>YELLOW</b> </h4>
-                      <p class="card-text text-center yfont">Swift Left and Watch your Favourite Dishes come to Life.</p>
+                      <h4 class="card-title text-center"> <b>YELLOW</b> </h4>
+                      <p class="card-text text-center">Swift Left and Watch your Favourite Dishes come to Life.</p>
                         <br>
-                        <p class="card-text text-center yfont" >All Prices are inclusive 5% VAT,10% Service Charge.</p>
+                        <p class="card-text text-center" >All Prices are inclusive 5% VAT,10% Service Charge.</p>
                     </div>
                   </div>
 

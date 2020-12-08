@@ -101,6 +101,12 @@ font-size: 18px;
     }
     body {
       font-family: "Raleway-Regular"!important;
+      /* font-family: Helvetica; */
+    }
+    @media only screen and (max-width: 600px) {
+      body {
+        font-family: "Raleway-Regular"!important;
+      }
     }
 .menulist{
   top: 100px;
@@ -122,3 +128,23 @@ font-size: 18px;
   top: 315px;
   left: 3px;
 }
+@font-face {
+  font-family: Raleway-Regular;
+  src: url('{{asset('web/font/Raleway-Italic-VariableFont_wght.ttf')}}');
+  }
+  
+  @media (min-width:1025px) { 
+    /* big landscape tablets, laptops, and desktops */ 
+    .custmimg{
+      height: 100%;
+      width: 100%;
+    }
+  }
+  @media (min-width:1281px) {
+
+     /* hi-res laptops and desktops */
+     .custmimg{
+      height: 100%;
+      width: 100%;
+    }
+     }
