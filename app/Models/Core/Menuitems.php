@@ -198,10 +198,17 @@ public function edit($request){
         'item_description' => $request->item_description
     ]);
 
-    DB::table('itemsto_categories')->where('item_id', '=', $item_id)
-        ->update([
+     //delete categories
+     DB::table('itemsto_categories')->where([
+        'item_id' => $item_id,
+    ])->delete();
+    
+    DB::table('itemsto_categories')->insert([
+          'item_id' => $item_id,
           'categories_id' => $request->categories_id
       ]);
+
+   
 
       return $item_id;
 

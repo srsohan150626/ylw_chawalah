@@ -36,7 +36,12 @@ class HomeController extends Controller
                      ->select('menuitems.*','categories.categories_id','categories_description.categories_name','categoryTable.path as imgpath')
                      ->get();
         $tot_item= count($menuitems);
-        return view('web.menudetails',compact('menuitems','tot_item'));
+        $categories= DB::table('categories')
+                    ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
+                    ->where('categories.categories_status',1)
+                    ->get();
+
+        return view('web.menudetails',compact('menuitems','tot_item','categories'));
     }
 
     public function list()

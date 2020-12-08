@@ -42,14 +42,14 @@
             }
             .toprightbottom {
             position: absolute;
-            top: 60px;
+            top: 30px;
             right: 16px;
             font-size: 18px;
             }
         .resslider{
-            top: 150px;
-            margin-left: 50px;
-            margin-right: 80px;
+            top: 200px;
+            margin-left: 35px;
+            margin-right: 35px;
         }
         @media only screen and (min-width: 768px) {
             
@@ -67,35 +67,31 @@
             <div class="bottomright">
                 <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
             </div>
-            <div class="topright">
-                <a href="{{url('/menucategory')}}"><img class="toprightimg" src="{{asset('web/img/new___icons_03_1604995966.png')}}"/></a>
-            </div>
             <div class="toprightbottom">
                 <a href="{{url('/')}}"> <img class="toprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}"/></a>
             </div>
         </div>
     
         <div id="mySwipe" class="swipe resslider">
-            <div class="swipe-wrap">
+            <div class="swipe-wrap ">
             
                 <div class="card " style="width: 18rem;">
                     <div class="card-body">
-                      <h5 class="card-title text-center">YELLOW</h5>
-                      <p class="card-text text-center">Swift Left and Watch your Favourite Dishes come to Life.</p>
+                      <h4 class="card-title text-center yfont"> <b>YELLOW</b> </h4>
+                      <p class="card-text text-center yfont">Swift Left and Watch your Favourite Dishes come to Life.</p>
                         <br>
-                        <p class="card-text text-center" >All Prices are inclusive 5% VAT,10% Service Charge.</p>
+                        <p class="card-text text-center yfont" >All Prices are inclusive 5% VAT,10% Service Charge.</p>
                     </div>
                   </div>
-                
-              
-                  <div class="card" style="width: 18rem;">
+
+                  <div class="card next" style="width: 18rem;">
                     <ul class="list-group list-group-flush text-center">
                         @foreach ($categories as $item)
-                        <li class="list-group-item"><a href="{{url('/menu/'.$item->categories_id)}}"><span style="font-size: 20px;">{{ $item->categories_name }}</span></a> </li>
+                        <li class="list-group-item"><a href="{{url('/menu/'.$item->categories_id)}}"><span style="font-size: 20px;" class="yfont">{{ $item->categories_name }}</span></a> </li>
                         @endforeach
                     </ul>
                   </div>
-                
+                </div>
              </div>
         </div>
        
