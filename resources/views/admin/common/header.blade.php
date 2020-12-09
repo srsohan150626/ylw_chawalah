@@ -52,7 +52,7 @@
             <!-- Menu Footer-->
             <li class="user-footer">
               <div class="pull-left">
-                <a href="#" class="btn btn-default btn-flat">{{ trans('labels.profile_link')}}</a>
+                <a href="{{ URL::to('admin/admin/profile')}}" class="btn btn-default btn-flat">{{ trans('labels.profile_link')}}</a>
               </div>
               <div class="pull-right">
                 <a href="{{ URL::to('admin/logout')}}" class="btn btn-default btn-flat">Sign Out</a>

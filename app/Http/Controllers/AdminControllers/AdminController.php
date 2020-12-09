@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\AdminControllers;
 use App\Models\Admin\Admin;
 use App\Models\Core\Categories;
+use App\Models\Core\Images;
 use App\Models\Core\Menuitems;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,10 @@ use File;
 
 class AdminController extends Controller
 {
+	public function __construct(Admin $admin)
+    {
+        $this->Admin = $admin;
+    }
 
 	public function dashboard(Request $request){
 		$total_category= Categories::all();
@@ -77,6 +82,56 @@ class AdminController extends Controller
 		}
 
 	}
+	//logout
+	public function logout(){
+		Auth::logout();
+		return redirect('/admin/login');
+	}
+
+	public function profile(Request $request){
+
+        $result = array();
+        $images = new Images;
+        $allimage = $images->getimages();
+        $result['admin'] = $this->Admin->edit(auth()->user()->id);
+        return view("admin.admin.profile")->with('result', $result)->with('allimage', $allimage);
+    }
+
+    public function update(Request $request){
+     $validator = Validator::make(
+        array(
+          'first_name' => $request->first_name,
+          'last_name' => $request->last_name,
+          'address' => $request->address,
+          'phone' => $request->phone,
+          'city' => $request->city,
+          'country' => "Bangladesh",
+          'zip' => $request->zip
+          ),
+        array(
+          'first_name' => 'required',
+          'last_name' => 'required',
+          'address' => 'required',
+          'phone' => 'required',
+          'city' => 'required',
+          'zip' => 'required'
+          )
+      );
+      if($validator->fails()){
+        return redirect()->back()->withErrors($validator)->withInput();
+      }
+
+       $update = $this->Admin->updaterecord($request);
+        $message = Lang::get("labels.ProfileUpdateMessage");
+       return redirect()->back()->with(['success' => $message]);
+     }
+
+     public function updatepassword(Request $request){
+        $update = $this->Admin->updatepassword($request);
+        $message = Lang::get("labels.PasswordUpdateMessage");
+        return redirect()->back()->withErrors([$message]);
+      }
+
 	//admins
 	public function admins(Request $request){
 		$result = array();
@@ -463,12 +518,7 @@ class AdminController extends Controller
 
 	}
 
-	//logout
-	public function logout(){
-		Auth::logout();
-		return redirect('/admin/login');
-	}
-
+	
 	
 	
 

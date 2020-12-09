@@ -33,24 +33,12 @@ class Admin extends Model
     public function updaterecord($data){
 
       $date	= date('y-m-d h:i:s');
-      if($data['image_id']){
-          $uploadImage = $data['image_id'];
-          $uploadImage = DB::table('image_categories')
-                           ->where('image_id',$uploadImage)
-                           ->select('path')
-                           ->first();
-
-          $uploadImage = 	$uploadImage->path;
-      }	else{
-          $uploadImage = $data['oldImage'];
-      }
 
       DB::table('users')->where('id','=', auth()->user()->id)->update([
         'user_name'		=>	$data['user_name'],
         'first_name'	=>	$data['first_name'],
         'last_name'		=>	$data['last_name'],
         'phone'			=>	$data['phone'],
-        'avatar'			=>	$uploadImage,
         'updated_at'	=>	$date
       ]);
 
@@ -66,7 +54,8 @@ class Admin extends Model
          'entry_city'			        =>	$data['city'],
          'entry_state'			      =>	$data['state'],
          'entry_postcode'		     	=>	$data['zip'],
-         'entry_country_id'		    =>	$data['country'],
+         'entry_country_id'		    =>	"1",
+         'entry_phone'  => "01987878736"
        ]);
 
      }else{
@@ -78,7 +67,8 @@ class Admin extends Model
          'entry_city'			        =>	$data['city'],
          'entry_state'			      =>	$data['state'],
          'entry_postcode'		     	=>	$data['zip'],
-         'entry_country_id'		    =>	$data['country'],
+         'entry_country_id'		    =>	"1",
+         'entry_phone'  => "01987878736"
        ]);
 
        if($address_book_id){
