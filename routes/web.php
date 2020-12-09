@@ -2,7 +2,7 @@
 
 Route::get('/','HomeController@index');
 Route::get('/menucategory','HomeController@list');
-Route::get('/menu/{id}','HomeController@menudetails');
+//Route::get('/menu/{id}','HomeController@menudetails');
 Route::get('/menu/{id}/{slug}','HomeController@menudetailsnew');
 Route::get('/menulist/{id}','HomeController@menulist');
 
@@ -15,7 +15,6 @@ Route::group(['namespace' => 'AdminControllers', 'prefix' => 'admin'], function 
 Route::group(['namespace' => 'AdminControllers', 'middleware' => 'auth', 'prefix' => 'admin'], function () {
     //log out
     Route::get('/logout', 'AdminController@logout');
-  //  Route::get('/dashboard/{reportBase}', 'AdminController@dashboard');
     Route::get('/dashboard', 'AdminController@dashboard');
 });
 
@@ -50,24 +49,24 @@ Route::group(['prefix' => 'admin/menuitems', 'middleware' => 'auth', 'namespace'
     Route::get('/filter', 'MenuItemsController@filter');
     Route::get('/addons/display/{id}', 'MenuItemsController@filter');
 
-    Route::group(['prefix' => 'extras'], function () {
-        Route::get('/display', 'ExtrasController@display');
-        Route::get('/add', 'ExtrasController@add');
-        Route::post('/add', 'ExtrasController@insert');
-        Route::get('/edit/{id}', 'ExtrasController@edit');
-        Route::post('/update', 'ExtrasController@update');
-        Route::post('/delete', 'ExtrasController@delete');
-        Route::get('/filter', 'ExtrasController@filter');
+    // Route::group(['prefix' => 'extras'], function () {
+    //     Route::get('/display', 'ExtrasController@display');
+    //     Route::get('/add', 'ExtrasController@add');
+    //     Route::post('/add', 'ExtrasController@insert');
+    //     Route::get('/edit/{id}', 'ExtrasController@edit');
+    //     Route::post('/update', 'ExtrasController@update');
+    //     Route::post('/delete', 'ExtrasController@delete');
+    //     Route::get('/filter', 'ExtrasController@filter');
         
-    });
-    Route::group(['prefix' => 'attach/addons'], function () {
-        Route::get('/display/{id}', 'MenuItemsController@additemaddons');
-            Route::post('/add', 'MenuItemsController@addnewitemaddons');
-            Route::post('/edit', 'MenuItemsController@editdefaultattribute');
-            Route::post('/update', 'MenuItemsController@updatedefaultattribute');
-            Route::post('/deletedefaultattributemodal', 'MenuItemsController@deletedefaultattributemodal');
-            Route::post('/delete', 'MenuItemsController@deletedefaultattribute');
-    });
+    // });
+    // Route::group(['prefix' => 'attach/addons'], function () {
+    //     Route::get('/display/{id}', 'MenuItemsController@additemaddons');
+    //         Route::post('/add', 'MenuItemsController@addnewitemaddons');
+    //         Route::post('/edit', 'MenuItemsController@editdefaultattribute');
+    //         Route::post('/update', 'MenuItemsController@updatedefaultattribute');
+    //         Route::post('/deletedefaultattributemodal', 'MenuItemsController@deletedefaultattributemodal');
+    //         Route::post('/delete', 'MenuItemsController@deletedefaultattribute');
+    // });
     
 
 });

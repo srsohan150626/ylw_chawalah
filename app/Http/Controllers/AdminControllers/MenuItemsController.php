@@ -125,7 +125,7 @@ class MenuItemsController extends Controller
     {
         //dd($request->all());
         $result = $this->item->updaterecord($request);
-        //dd($result);
+       // dd($result);
         return redirect()->back()->withErrors([Lang::get("labels.ProducthasbeenupdatedMessage")]);
         // $products_id = $request->id;
         // if ($request->products_type == 1) {

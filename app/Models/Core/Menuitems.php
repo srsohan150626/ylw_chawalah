@@ -188,7 +188,7 @@ public function edit($request){
         $uploadImage = $request->oldImage;
     }
 
-    $item_id = DB::table('menuitems')->where('item_id', '=', $item_id)->update([
+     DB::table('menuitems')->where('item_id',$item_id)->update([
         'item_image' => $uploadImage,
         'item_name' => $request->item_name,
         'item_price' => $request->item_price,

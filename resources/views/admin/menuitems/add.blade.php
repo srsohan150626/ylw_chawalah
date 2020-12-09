@@ -29,7 +29,7 @@
                                     <div class="box-body">
                                         @if( count($errors) > 0)
                                         @foreach($errors->all() as $error)
-                                        <div class="alert alert-danger" role="alert">
+                                        <div class="alert alert-success" role="alert">
                                             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                             <span class="sr-only">{{ trans('labels.Error') }}:</span>
                                             {{ $error }}
