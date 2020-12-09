@@ -50,7 +50,7 @@
               <span  style="color: burlywood;float: right;"><b>{{ $item->item_price}}</b></span>
             </div>
               
-              <span class="vrr"> {!! str_limit(strip_tags($item->item_description), $limit = 35, $end = '...') !!}</span>
+              <span class="vrr"> {!! str_limit(strip_tags($item->item_description), $limit = 25, $end = '...') !!}</span>
          </div>
 
           @endforeach
