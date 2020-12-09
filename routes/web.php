@@ -3,6 +3,7 @@
 Route::get('/','HomeController@index');
 Route::get('/menucategory','HomeController@list');
 Route::get('/menu/{id}','HomeController@menudetails');
+Route::get('/menu/{id}/{slug}','HomeController@menudetailsnew');
 Route::get('/menulist/{id}','HomeController@menulist');
 
 Route::group(['namespace' => 'AdminControllers', 'prefix' => 'admin'], function () {

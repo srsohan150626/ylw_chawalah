@@ -35,37 +35,11 @@
         <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
     </div>
 
+  @if ($tot_item>0)
   
     <div class="swiper-container ">
         <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
-                <div class="overlay">
-                    <a href="{{url('/')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
-                </div>
-    
-                <div class="overlayhome">
-                    <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
-                </div>
-    
-                <div class="overlayone">
-                    <img class="dttoprightimgbottomone" src="{{asset('web/img/new___icons_02_1604995967.png')}}" />
-                </div>
-    
-                <div class="" style="top:0px;">
-                    <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($menuitemsindividual[0]->imgpath)}}"/>
-                    <div class="text-center mt-4">
-                        <h3 class="vrr">{{ $menuitemsindividual[0]->item_name }}</h3>
-                    <span class="vrr">TK. {{ $menuitemsindividual[0]->item_price }}</span>
-                    </div>
-                    <div class="mt-2 ml-2 text-center">
-                    <span style="font-size: larger;" class="vrr"><?=stripslashes($menuitemsindividual[0]->item_description)?> </span>
-                    </div>
-                </div>
-                </div>
-            
-                {{-- @include('web.common.catlist') --}}
-        @if ($tot_item>0)
           @foreach ($menuitems as $item)
           <div class="swiper-slide">
             <div class="overlay">
@@ -92,13 +66,32 @@
             </div>
           </div>
           @endforeach
-          @endif
           @include('web.common.catlist')
 
         </div>
     </div>
+  @else 
+  <div class="swiper-container ">
+    <div class="swiper-wrapper">
+  <div class="swiper-slide">
+    <div class="text-center mt-4">
+      <div class="overlay">
+        <a href="{{url('/')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
+      </div>
 
- 
+      <div class="overlayhome">
+        <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+      </div>
+    <img src="{{asset('web/img/oops.jpg')}}" class="img-fluid" style="margin-top: 125px;">
+        <h3 class="vrr">No Items Found for your Selected Menu Category</h3>
+    </div> 
+    </div>
+
+    @include('web.common.catlist')
+
+  </div> 
+</div>
+  @endif
    
   </div>
 
