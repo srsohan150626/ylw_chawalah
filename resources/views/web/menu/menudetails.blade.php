@@ -83,7 +83,7 @@
             <div class="" style="top:0px;">
               <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($item->imgpath)}}"/>
               <div class="text-center mt-4">
-                  <h3 class="vrr">{{ $item->item_name }}</h3>
+                  <h3 class="vrr2" style="color: #000000;font-size: 24px;margin: 20px 0px 0px 0px;">{{ $item->item_name }}</h3>
               <span class="vrr">TK. {{ $item->item_price }}</span>
               </div>
               <div class="mt-2 ml-2 text-center">
