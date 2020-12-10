@@ -55,11 +55,11 @@
                 <div class="" style="top:0px;">
                     <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($menuitemsindividual[0]->imgpath)}}"/>
                     <div class="text-center mt-4">
-                        <h3 class="vrr">{{ $menuitemsindividual[0]->item_name }}</h3>
+                      <h3 class="vrr2 itemname_text" >{{ $menuitemsindividual[0]->item_name }}</h3>
                     <span class="vrr">TK. {{ $menuitemsindividual[0]->item_price }}</span>
                     </div>
                     <div class="mt-2 ml-2 text-center">
-                    <span style="font-size: larger;" class="vrr"><?=stripslashes($menuitemsindividual[0]->item_description)?> </span>
+                    <span  class="vrr itemdes_text"><?=stripslashes($menuitemsindividual[0]->item_description)?> </span>
                     </div>
                 </div>
                 </div>
@@ -83,11 +83,11 @@
             <div class="" style="top:0px;">
               <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($item->imgpath)}}"/>
               <div class="text-center mt-4">
-                  <h3 class="vrr2" style="color: #000000;font-size: 24px;margin: 20px 0px 0px 0px;">{{ $item->item_name }}</h3>
+                  <h3 class="vrr2 itemname_text">{{ $item->item_name }} </h3>
               <span class="vrr">TK. {{ $item->item_price }}</span>
               </div>
               <div class="mt-2 ml-2 text-center">
-                <span style="font-size: larger;" class="vrr"><?=stripslashes($item->item_description)?> </span>
+                <span class="vrr itemdes_text"><?=stripslashes($item->item_description)?> </span>
               </div>
             </div>
           </div>

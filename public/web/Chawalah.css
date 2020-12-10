@@ -142,9 +142,14 @@ white-space: normal;
   word-wrap: break-word;
   white-space: normal;
   }
-  .item_detail_text{
-    text-decoration: none; font-weight: normal; color: #000000; text-align: center; font-family: Helvetica; font-size: 24px;
+  .itemname_text{
+    color: #000000;
+    font-size: 24px;
     margin: 20px 0px 0px 0px;
+  }
+  .itemdes_text {
+    text-decoration: none; font-weight: normal; color: #000000; text-align: center; font-family: Helvetica; font-size: 16px;
+    margin: 15px 0px 0px 0px;
     word-wrap: break-word;
     white-space: normal;
     }
