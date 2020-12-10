@@ -45,7 +45,7 @@
                 </div>
     
                 <div class="overlayhome">
-                    <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+                    <a href="{{ url()->previous() }}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
                 </div>
     
                 <div class="overlayone">
@@ -73,7 +73,7 @@
             </div>
 
             <div class="overlayhome">
-              <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+              <a href="{{ url()->previous() }}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
             </div>
 
             <div class="overlayone">
