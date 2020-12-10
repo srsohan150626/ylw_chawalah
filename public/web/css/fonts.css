@@ -7,14 +7,12 @@ src: url('http://coyamenu.app.appery.io/font/VarelaRound-Regular.ttf');
 
 @font-face {
 font-family: GzaTrial-Bold;
-src: url('/web/font/Gotham-BoldItalic 400.otf');
-/* src: url('{{asset('web/font/Gotham-BoldItalic 400.otf')}}'); */
+src: url('http://coyamenu.app.appery.io/font/GzaTrial-Bold.otf');
 }
 
 @font-face {
 font-family: Raleway-Regular;
-src: url('/web/font/Raleway-Italic-VariableFont_wght.ttf');
-/* src: url('{{asset('web/font/Raleway-Italic-VariableFont_wght.ttf')}}'); */
+src: url('http://coyamenu.app.appery.io/font/Raleway-Regular.ttf');
 }
 
 .vrr {
@@ -34,7 +32,6 @@ text-shadow:none!important;
 font-family:"Raleway-Regular"!important;
 line-height: 100%!important;
 }
-
 
 .alignfonts{
     float:left!important;

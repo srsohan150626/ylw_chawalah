@@ -46,9 +46,9 @@
 
           </div>
        </section>
-    
+
     </div>
     <script src="{!! asset('admin/plugins/jQuery/jQuery-2.2.0.min.js') !!}"></script>
-
     <script src="{!! asset('admin/dist/js/pages/dashboard2.js') !!}"></script>
+
 @endsection

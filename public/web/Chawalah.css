@@ -123,3 +123,22 @@ font-size: 18px;
   text-transform: uppercase;
   text-shadow: 1px 1px;
 }
+
+.yellow_label {
+text-decoration: none; font-weight: normal; color: #000000; text-align: center; font-family: Helvetica; font-size: 36px;
+margin: 0px 0px 0px 0px;
+word-wrap: break-word;
+white-space: normal;
+}
+
+.home_text_1 {
+text-decoration: none; font-weight: normal; color: #666666; text-align: center; font-family: Helvetica; font-size: 16px;
+margin: 12px 0px 4px 0px;
+word-wrap: break-word;
+white-space: normal;
+}
+.home_text_2 {
+  text-decoration: none; font-weight: normal; color: #666666; text-align: center; font-family: Helvetica; font-size: 15px;
+  word-wrap: break-word;
+  white-space: normal;
+  }
