@@ -52,7 +52,7 @@ class MenuItemsController extends Controller
                     ->select('menuitems.*','image_categories.path as path','categories_description.categories_id','categories_description.categories_name')
                     ->orderby('menuitems.item_id','DESC')
                     ->paginate(30);
-                    
+        //dd($menuitems)  
         $tot_item= count($menuitems);
         //$menuitems = $this->item->paginator($request);
         $results['menuitems'] = $menuitems;

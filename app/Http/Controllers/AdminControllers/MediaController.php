@@ -94,6 +94,18 @@ class MediaController extends Controller
             $Images = new Images();
             $imagedata = $Images->imagedata($filename, $Path, $width, $height);
 
+            //move to public imagaes folder
+            $destinationPath = public_path('images/media/' . $directory . '/');
+            $actualimage = Image::make($image, array(
+    
+                'width' => $width,
+    
+                'height' => $height,
+    
+                'grayscale' => false));
+            $nameactual = $actualimage->save($destinationPath . '/'. $filename);
+            //end move
+            
             $AllImagesSettingData = $Images->AllimagesHeightWidth();
             
             switch (true) {

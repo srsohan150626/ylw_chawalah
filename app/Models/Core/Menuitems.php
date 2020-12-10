@@ -65,24 +65,24 @@ class Menuitems extends Model
             ]);
         }
         //special product
-        if($request->isSpecial == 'yes'){
-          DB::table('specials')
-          ->where('products_id', '=', $products_id)
-          ->update([
-              'specials_last_modified' => $date_added,
-              'date_status_change' => $date_added,
-              'status' => 0,
-          ]);
-          DB::table('specials')
-          ->insert([
-              'products_id' => $products_id,
-              'specials_new_products_price' => $request->specials_new_products_price,
-              'specials_date_added' => time(),
-              'expires_date' => $expiryDateFormate,
-              'status' => $request->status,
-          ]);
+        // if($request->isSpecial == 'yes'){
+        //   DB::table('specials')
+        //   ->where('products_id', '=', $products_id)
+        //   ->update([
+        //       'specials_last_modified' => $date_added,
+        //       'date_status_change' => $date_added,
+        //       'status' => 0,
+        //   ]);
+        //   DB::table('specials')
+        //   ->insert([
+        //       'products_id' => $products_id,
+        //       'specials_new_products_price' => $request->specials_new_products_price,
+        //       'specials_date_added' => time(),
+        //       'expires_date' => $expiryDateFormate,
+        //       'status' => $request->status,
+        //   ]);
     
-        }
+        // }
 
         DB::table('itemsto_categories')
             ->insert([
