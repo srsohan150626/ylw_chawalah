@@ -45,12 +45,12 @@
           @foreach ($menuitems as $item)
     
           <div class=" mt-3 ml-1" >
-            <div style="display: inline-block;width:290px;">
-            <a href="{{url('/menu/'.$item->categories_id.'/'.$item->item_slug)}}" style="color: black;"><span class="vrr"><b>  {!! str_limit(strip_tags($item->item_name), $limit = 25, $end = '...') !!}</b></span></a>
-              <span  style="color: burlywood;float: right;"><b>{{ $item->item_price}}</b></span>
-            </div>
-              
-              <span class="vrr"> {!! str_limit(strip_tags($item->item_description), $limit = 25, $end = '...') !!}</span>
+           
+              <div style="display: inline-block;width:305px;">
+                <a href="{{url('/menu/'.$item->categories_id.'/'.$item->item_slug)}}" style="color: black;"><span class="vrr"><b>  {!! str_limit(strip_tags($item->item_name), $limit = 25, $end = '...') !!}</b></span></a>
+                  <span  style="color: burlywood;float: right;"><b>{{ $item->item_price}}</b></span>
+                </div>
+              <span class="vrr "> {!! str_limit(strip_tags($item->item_description), $limit = 25, $end = '...') !!}</span>
          </div>
 
           @endforeach
