@@ -7,12 +7,12 @@ src: url('http://coyamenu.app.appery.io/font/VarelaRound-Regular.ttf');
 
 @font-face {
 font-family: GzaTrial-Bold;
-src: url('http://coyamenu.app.appery.io/font/GzaTrial-Bold.otf');
+src: url('/web/font/BellMTBold.ttf');
 }
 
 @font-face {
 font-family: Raleway-Regular;
-src: url('http://coyamenu.app.appery.io/font/Raleway-Regular.ttf');
+src: url('/web/font/Raleway-Regular.ttf');
 }
 
 .vrr {
