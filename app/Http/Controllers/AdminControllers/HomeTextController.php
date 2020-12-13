@@ -63,7 +63,14 @@ class HomeTextController extends Controller
         $upper_text = $request->upper_text;
         $lower_text = $request->lower_text;
         $status = $request->status;
-    
+        
+        if($status==1)
+        {
+            DB::table('hometexts')->where('status',1)->update(
+                [
+                    'status'=>0
+                ]);
+        }
         DB::table('hometexts')->where('id', $request->id)->update(
             [
                 'upper_text' => $upper_text,
