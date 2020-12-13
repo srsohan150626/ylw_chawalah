@@ -76,6 +76,14 @@ Route::group(['prefix' => 'admin/admin', 'middleware' => 'auth', 'namespace' => 
     Route::post('/update', 'AdminController@update');
     Route::post('/updatepassword', 'AdminController@updatepassword');
 });
+Route::group(['prefix' => 'admin/hometexts', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
+         Route::get('/display', 'HomeTextController@display');
+        Route::get('/add', 'HomeTextController@add');
+        Route::post('/add', 'HomeTextController@insert');
+        Route::get('/edit/{id}', 'HomeTextController@edit');
+        Route::post('/update', 'HomeTextController@update');
+        Route::post('/delete', 'HomeTextController@delete');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
 //admin managements

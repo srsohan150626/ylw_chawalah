@@ -74,9 +74,9 @@
                     <div class="card-body">
                         <br>
                       <h3 class="card-title text-center yellow_label   "> <b class="gza" >YELLOW</b> </h3>
-                      <p class="card-text text-center vrr home_text_1">Swipe left and watch your favourite dishes come to life.</p>
+                      <p class="card-text text-center vrr home_text_1">{{ strip_tags($hometext[0]->upper_text) }}</p>
                         <br>
-                        <p class="card-text text-center vrr home_text_2" >All prices are inclusive 15% vat,10% service charge.</p>
+                        <p class="card-text text-center vrr home_text_2" >{{strip_tags($hometext[0]->lower_text)}}</p>
                         <br>
                     </div>
                   </div>

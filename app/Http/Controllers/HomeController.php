@@ -13,8 +13,11 @@ class HomeController extends Controller
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
                     ->get();
+        $hometext= DB::table('hometexts')
+                ->where('status',1)
+                ->get();
        // dd($categories);
-       return view('web.index',compact('categories'));
+       return view('web.index',compact('categories','hometext'));
     }
 
     public function menudetails($id)
@@ -52,7 +55,11 @@ class HomeController extends Controller
                     ->where('categories.categories_status',1)
                     ->get();
        // dd($categories);
-       return view('web.list',compact('categories'));
+       $hometext= DB::table('hometexts')
+       ->where('status',1)
+       ->get();
+       
+       return view('web.list',compact('categories','hometext'));
     }
 
     public function menulist($id)

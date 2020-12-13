@@ -38,6 +38,9 @@
               {{-- <li class="{{ Request::is('admin/menuitems/extras/display') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/add') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/edit/*') ? 'active' : '' }} {{ Request::is('admin/menuitems/extras/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/menuitems/extras/display')}}"><i class="fa fa-circle-o"></i> Extras</a></li> --}}
               
               <li class="{{ Request::is('admin/menuitems/display') ? 'active' : '' }} {{ Request::is('admin/menuitems/add') ? 'active' : '' }} {{ Request::is('admin/menuitems/edit/*') ? 'active' : '' }} {{ Request::is('admin/menuitems/filter') ? 'active' : '' }}"><a href="{{ URL::to('admin/menuitems/display')}}"><i class="fa fa-circle-o"></i> Menuitems</a></li>
+
+             <li class="{{ Request::is('admin/hometexts/display') ? 'active' : '' }} {{ Request::is('admin/hometexts/add') ? 'active' : '' }} {{ Request::is('admin/hometexts/edit/*') ? 'active' : '' }}"><a href="{{ URL::to('admin/hometexts/display')}}"><i class="fa fa-circle-o"></i> HomeTexts</a></li>
+
           </ul>
         </li>
 
