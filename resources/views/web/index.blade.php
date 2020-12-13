@@ -74,9 +74,18 @@
                     <div class="card-body">
                         <br>
                       <h3 class="card-title text-center yellow_label   "> <b class="gza" >YELLOW</b> </h3>
-                      <p class="card-text text-center vrr home_text_1">{{ strip_tags($hometext[0]->upper_text) }}</p>
+                      <p class="card-text text-center vrr home_text_1">
+                          @if (isset($hometext[0]->upper_text))
+                          {{ strip_tags($hometext[0]->upper_text) }}
+                          @endif
+                          
+                        </p>
                         <br>
-                        <p class="card-text text-center vrr home_text_2" >{{strip_tags($hometext[0]->lower_text)}}</p>
+                        <p class="card-text text-center vrr home_text_2" >
+                            @if (isset($hometext[0]->lower_text))
+                            {{strip_tags($hometext[0]->lower_text)}}
+                            @endif
+                            </p>
                         <br>
                     </div>
                   </div>
