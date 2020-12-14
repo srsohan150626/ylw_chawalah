@@ -21,6 +21,7 @@ class CategoriesController extends Controller
 
   public function display(){
     $categories = $this->Categories->paginator();
+    //dd($categories->toArray());
     return view("admin.categories.index",compact('categories'));
   }
 
@@ -34,7 +35,9 @@ class CategoriesController extends Controller
   public function add(Request $request){
     $images = new Images;
     $allimage = $images->getimages();
-    return view("admin.categories.add")->with('allimage', $allimage);
+    $categories = $this->Categories->paginator();
+    //dd($categories);
+    return view("admin.categories.add")->with('allimage', $allimage)->with('categories', $categories);
   }
 
   public function insert(Request $request){
@@ -45,8 +48,9 @@ class CategoriesController extends Controller
         $categoryName = $request->categoryName;
         $uploadImage = $request->image_id;
         $categories_status  = $request->categories_status;
+        $parent_id = $request->parent_id;
 
-        $categories_id = $this->Categories->insert($uploadImage,$date_added,$categories_status);
+        $categories_id = $this->Categories->insert($uploadImage,$date_added,$categories_status,$parent_id);
         $slug_flag = false;
 
         //slug
@@ -86,7 +90,7 @@ class CategoriesController extends Controller
     $result['message'] = array();
 
     $editSubCategory = $this->Categories->editsubcategory($request);
-
+    $categories = $this->Categories->paginator();
     $description_data = array();
     
     $id = $request->id;
@@ -99,6 +103,8 @@ class CategoriesController extends Controller
     
     $result['description'] = $description_data;
     $result['editSubCategory'] = $editSubCategory;
+    //dd($result['editSubCategory']);
+    $result['categories'] = $categories;
 
     return view("admin.categories.edit")->with('result', $result)->with('allimage', $allimage);
    }
@@ -110,6 +116,7 @@ class CategoriesController extends Controller
      $last_modified 	=   date('y-m-d h:i:s');
      $categories_id = $request->id;
      $categories_status  = $request->categories_status;
+     $parent_id = $request->parent_id;
 
      //check slug
      if($request->old_slug!=$request->slug){
@@ -135,7 +142,7 @@ class CategoriesController extends Controller
          $uploadImage = $request->oldImage;
      }
 
-     $updateCategory = $this->Categories->updaterecord($categories_id,$uploadImage,$last_modified,$slug,$categories_status);
+     $updateCategory = $this->Categories->updaterecord($categories_id,$uploadImage,$last_modified,$slug,$categories_status,$parent_id);
 
        $checkExist = $this->Categories->checkExit($categories_id);
          $categories_name = $request->category_name;

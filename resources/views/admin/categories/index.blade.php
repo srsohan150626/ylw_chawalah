@@ -64,6 +64,7 @@
                                             <th>SL No.</th>
                                             <th>{{ trans('labels.Name') }}</th>
                                             <th>{{ trans('labels.Image') }}</th>
+                                            <th>Parent</th>
                                             <th>@sortablelink('created_at', trans('labels.AddedLastModifiedDate') )</th>
                                             <th>@sortablelink('status', trans('labels.Status'))</th>
                                             <th>{{ trans('labels.Action') }}</th>
@@ -76,6 +77,17 @@
                                                     <td>{{ $loop->index+1 }}</td>
                                                         <td>{{ $category->name }}</td>
                                                         <td><img src="{{asset($category->imgpath)}}" alt="" width=" 100px"></td>
+                                                        <td>
+                                                            @if ($category->parent_id==0)
+                                                                Parent Category 
+                                                            @else 
+                                                            @php
+                                                             $parentname=\App\Models\Core\CategoryDescription::where(['categories_id' => $category->parent_id])->pluck('categories_name')->first();
+                                                            @endphp
+                                                          
+                                                            {{ $parentname }} 
+                                                            @endif
+                                                        </td>
                                                         <td>
                                                             <strong>{{ trans('labels.AddedDate') }}: </strong> {{ $category->date_added }}<br>
                                                             <strong>{{ trans('labels.ModifiedDate') }}: </strong>{{ $category->last_modified }}

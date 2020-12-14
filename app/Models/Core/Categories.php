@@ -24,7 +24,7 @@ class Categories extends Model
 
     public function paginator(){
 
-      $categories = Categories::sortable(['categories_id'=>'ASC'])
+      $categories = Categories::sortable(['categories_id'=>'DESC'])
            ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
            ->LeftJoin('image_categories as categoryTable', function ($join) {
                 $join->on('categoryTable.image_id', '=', 'categories.categories_image')
@@ -34,7 +34,7 @@ class Categories extends Model
                             ->orWhere('categoryTable.image_type', '=', 'ACTUAL');
                     });
             })
-            ->select('categories.categories_id as id', 'categories.categories_image as image','categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories_description.categories_name as name','categoryTable.path as imgpath','categories.categories_status  as categories_status')
+            ->select('categories.categories_id as id', 'categories.categories_image as image','categories.created_at as date_added', 'categories.updated_at as last_modified','categories.parent_id as parent_id', 'categories_description.categories_name as name','categoryTable.path as imgpath','categories.categories_status  as categories_status')
             ->paginate(50);
             //->paginate($commonsetting['pagination']);
 
@@ -86,12 +86,13 @@ class Categories extends Model
         return $categories;
     }
 
-    public function insert($uploadImage,$date_added,$categories_status){
+    public function insert($uploadImage,$date_added,$categories_status,$parent_id){
         $categories = DB::table('categories')->insertGetId([
             'categories_image'   =>   $uploadImage,
             'created_at'		 =>   $date_added,
             'categories_slug'    =>   'Null',
-            'categories_status' => $categories_status
+            'categories_status' => $categories_status,
+            'parent_id' => $parent_id
         ]);
         return $categories;
     }
@@ -120,13 +121,14 @@ class Categories extends Model
         return $category;
     }
 
-    public function updaterecord($categories_id,$uploadImage,$last_modified,$slug,$categories_status){
+    public function updaterecord($categories_id,$uploadImage,$last_modified,$slug,$categories_status,$parent_id){
         DB::table('categories')->where('categories_id', $categories_id)->update(
         [
             'categories_image'   =>   $uploadImage,
             'updated_at'  	     =>   $last_modified,
             'categories_slug'    =>   $slug,
-            'categories_status'=>$categories_status
+            'categories_status'=>$categories_status,
+            'parent_id' => $parent_id
         ]);
   
       }
@@ -168,7 +170,7 @@ class Categories extends Model
     public function editsubcategory($request){
         $editSubCategory = DB::table('categories')
             ->leftJoin('image_categories as categoryTable','categoryTable.image_id', '=', 'categories.categories_image')
-            ->select('categories.categories_id as id', 'categories.categories_image as image','categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories.categories_slug as slug', 'categories.categories_status  as categories_status','categoryTable.path as imgpath')
+            ->select('categories.categories_id as id', 'categories.categories_image as image','categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories.categories_slug as slug', 'categories.categories_status  as categories_status','categories.parent_id as parent_id','categoryTable.path as imgpath')
             ->where('categories.categories_id', $request->id)->get();
         return $editSubCategory;
     }

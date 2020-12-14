@@ -129,6 +129,24 @@
                                           {{ trans('labels.GeneralStatusText') }}</span>
                                           </div>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="name" class="col-sm-2 col-md-3 control-label">Choose Parent Category </label>
+                                            <div class="col-sm-10 col-md-4">
+                                              <select class="form-control" name="parent_id">
+                                                    {{-- <option value="0">Leave as Parent</option> --}}
+                                                    @foreach ($result['categories'] as $item)
+                                                    <option value="{{$item->id }}" 
+                                                        @if ($item->id== $result['editSubCategory'][0]->parent_id) selected  @endif>
+                                                        {{ $item->name }}
+                                                    </option>
+                                                    @endforeach
+                                              </select>
+                                            <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                                            Choose parent Category. Leave as parent if this is a parent category.</span>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
