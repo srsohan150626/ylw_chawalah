@@ -23,7 +23,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
     {{-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> --}}
     <script src="{{asset('web/js/fakeloader.js')}}"></script>
-    
+  
 
 @stack('style')
 </head>
@@ -33,6 +33,14 @@
 
     @stack('scripts')
 
-
+    <script>
+        $(document).ready(
+            $('.bottomleftimg').click(function(){
+               // $('.test').css('transform',"rotate(360deg)");
+                //$('.test').css('transition',"transform 8s");
+                $('.test').addClass( "test-box" );
+            })
+            )
+    </script>
 </body>
 </html>

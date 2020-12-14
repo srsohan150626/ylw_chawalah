@@ -1,10 +1,17 @@
 <?php
 
 Route::get('/','HomeController@index');
+Route::get('/fastfood','HomeController@fastfood' );
 Route::get('/menucategory','HomeController@list');
 //Route::get('/menu/{id}','HomeController@menudetails');
 Route::get('/menu/{id}/{slug}','HomeController@menudetailsnew');
 Route::get('/menulist/{id}','HomeController@menulist');
+
+Route::group(['namespace' => 'Web'], function () {
+    Route::get('/drinks','DrinksHomeController@index');
+    Route::get('/menulistdrinks/{id}','DrinksHomeController@menulist');
+    Route::get('/menudrinks/{id}/{slug}','DrinksHomeController@menudetails');
+});
 
 Route::group(['namespace' => 'AdminControllers', 'prefix' => 'admin'], function () {
     Route::get('/login', 'AdminController@login')->name('login');

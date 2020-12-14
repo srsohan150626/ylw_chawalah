@@ -57,11 +57,11 @@
     </style>
     @endpush
     @section('contents')
-    <div class="bg">
+    <div class="bg test">
         <div class="">
         
             <div class="bottomleft">
-                <img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/>
+                <a href="{{url('/drinks')}}"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
             </div>
             <div class="bottomright">
                 <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>

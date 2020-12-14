@@ -8,8 +8,4 @@ class CategoryDescription extends Model
 {
     protected $table= "categories_description";
 
-    // public function parentname()
-    // {
-    //     return $this->belongsTo('App\Models\Core\C','role','id');
-    // }
 }

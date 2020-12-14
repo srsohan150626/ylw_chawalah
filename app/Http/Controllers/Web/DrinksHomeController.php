@@ -1,81 +1,23 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Web;
 use DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Models\Core\CategoryDescription;
 
-class HomeController extends Controller
+class DrinksHomeController extends Controller
 {
     public function index()
     {
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
+                    ->where('categories.parent_id',10)
                     ->get();
-        $hometext= DB::table('hometexts')
-                ->where('status',1)
-                ->get();
-       // dd($categories);
-       return view('web.index',compact('categories','hometext'));
-    }
-
-    public function fastfood()
-    {
-        $categories= DB::table('categories')
-                    ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
-                    ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
-                    ->get();
-        $hometext= DB::table('hometexts')
-                ->where('status',1)
-                ->get();
-       // dd($categories);
-       return view('web.fastfood.index',compact('categories','hometext'));
-    }
-
-    public function menudetails($id)
-    {
-        //dd($id);
-        $menuitems= DB::table('menuitems')
-                    ->leftjoin('itemsto_categories','itemsto_categories.item_id','=','menuitems.item_id')
-                    ->leftjoin('categories','categories.categories_id','=','itemsto_categories.categories_id')
-                    ->leftjoin('categories_description','categories_description.categories_id','=','itemsto_categories.categories_id')
-                    ->LeftJoin('image_categories as categoryTable', function ($join) {
-                        $join->on('categoryTable.image_id', '=', 'menuitems.item_image')
-                            ->where(function ($query) {
-                                $query->where('categoryTable.image_type', '=', 'THUMBNAIL')
-                                    ->where('categoryTable.image_type', '!=', 'THUMBNAIL')
-                                    ->orWhere('categoryTable.image_type', '=', 'ACTUAL');
-                            });
-                     })
-                     ->where('menuitems.item_status',1)
-                     ->where('itemsto_categories.categories_id',$id)
-                     ->select('menuitems.*','categories.categories_id','categories_description.categories_name','categoryTable.path as imgpath')
-                     ->get();
-        $tot_item= count($menuitems);
-        $categories= DB::table('categories')
-                    ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
-                    ->where('categories.categories_status',1)
-                    ->get();
-
-        return view('web.menu.menudetails',compact('menuitems','tot_item','categories'));
-    }
-
-    public function list()
-    {
-        $categories= DB::table('categories')
-                    ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
-                    ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
-                    ->get();
-       // dd($categories);
-       $hometext= DB::table('hometexts')
-       ->where('status',1)
-       ->get();
-       
-       return view('web.list',compact('categories','hometext'));
+        $parent_name= CategoryDescription::where('categories_id',10)->first();
+        //dd($parent_name->categories_name);
+       return view('web.drinks.index',compact('categories','parent_name'));
     }
 
     public function menulist($id)
@@ -94,18 +36,19 @@ class HomeController extends Controller
         $categories= DB::table('categories')
         ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
         ->where('categories.categories_status',1)
-        ->where('categories.parent_id',9)
+        ->where('categories.parent_id',10)
         ->get();
 
         if($tot_item==0)
         {
-            return view('web.menu.empty',compact('categories'));
+            //dd($categories);
+            return view('web.drinks.empty',compact('categories'));
         }
         
-        return view('web.menu.menulist',compact('menuitems','tot_item'));
+        return view('web.drinks.menulist',compact('menuitems','tot_item'));
     }
 
-    public function menudetailsnew($id,$slug)
+    public function menudetails($id,$slug)
     {
        $id= $id;
        $slug= $slug;
@@ -149,11 +92,10 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
+                    ->where('categories.parent_id',10)
                     ->get();
 
-        return view('web.menu.menudetails',compact('menuitemsindividual','menuitems','tot_item','categories'));
+        return view('web.drinks.menudetails',compact('menuitemsindividual','menuitems','tot_item','categories'));
 
     }
-
 }
