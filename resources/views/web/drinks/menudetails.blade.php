@@ -29,7 +29,7 @@
 
         
     <div class="dtbottomleft">
-      <a href="{{url('/')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
+      <a href="{{url('/fastfood')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
         <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
@@ -65,7 +65,7 @@
           @foreach ($menuitems as $item)
           <div class="swiper-slide">
             <div class="overlay">
-              <a href="{{url('/')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
+              <a href="{{url('/drinks')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
             </div>
 
             <div class="overlayhome">

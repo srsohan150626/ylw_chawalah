@@ -31,7 +31,7 @@
     </div>
 
     <div class="dtbottomleft">
-        <a href="{{url('/')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
+        <a href="{{url('/fastfood')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
         <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
