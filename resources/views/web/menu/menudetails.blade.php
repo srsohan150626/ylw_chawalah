@@ -32,7 +32,7 @@
              <a href="{{url('/drinks')}}"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
-        <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
+      <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
     </div>
 
   
@@ -53,7 +53,7 @@
                 </div>
     
                 <div class="" style="top:0px;">
-                    <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($menuitemsindividual[0]->imgpath)}}"/>
+                    <img class="img-fluid"  src="{{asset($menuitemsindividual[0]->imgpath)}}"/>
                     <div class="text-center mt-4">
                       <h3 class="vrr2 itemname_text" >{{ $menuitemsindividual[0]->item_name }}</h3>
                     <span class="vrr">TK. {{ $menuitemsindividual[0]->item_price }}</span>
@@ -81,7 +81,7 @@
             </div>
 
             <div class="" style="top:0px;">
-              <img class="custmimg" style="height: 380px; width: 100%;" src="{{asset($item->imgpath)}}"/>
+              <img class="img-fluid"  src="{{asset($item->imgpath)}}"/>
               <div class="text-center mt-4">
                   <h3 class="vrr2 itemname_text">{{ $item->item_name }} </h3>
               <span class="vrr">TK. {{ $item->item_price }}</span>

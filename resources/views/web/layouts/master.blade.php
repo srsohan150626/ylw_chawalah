@@ -36,11 +36,15 @@
     <script>
         $(document).ready(
             $('.bottomleftimg').click(function(){
-               // $('.test').css('transform',"rotate(360deg)");
-                //$('.test').css('transition',"transform 8s");
                 $('.test').addClass( "test-box" );
             })
+      
             )
     </script>
+      <script>
+        $('.menu3').click(function(){
+            $('.test').addClass( "test-box-menu3" );
+        })
+  </script>
 </body>
 </html>

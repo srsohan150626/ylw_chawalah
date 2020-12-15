@@ -32,7 +32,7 @@
       <a href="{{url('/drinks')}}"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
-        <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
+      <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
     </div>
 
     <div class="swiper-container ">

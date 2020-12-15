@@ -32,7 +32,7 @@
       <a href="{{url('/fastfood')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
-      <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
+      <a href="{{url('/drinks')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
     </div>
 
     <div class="swiper-container ">
@@ -61,7 +61,7 @@
               </div>
         <div class="card text-center mlist" style="width: 18rem;top:125px;left:36px; opacity: 0.8;">
                     @foreach ($categories as $item)
-                    <span class="text-center vrr mt-3"><a href="{{url('/menulistdrinks/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
+                    <span class="text-center vrr mt-3"><a href="{{url('/menulist3/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
                     @endforeach
                     <br>
                 </ul>

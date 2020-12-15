@@ -58,7 +58,7 @@
                 <a href="{{url('/fastfood')}}"><img class="bottomleftimg bottomleftimgdrink" src="{{asset('web/img/Food-01B.png')}}"/></a>
             </div>
             <div class="bottomright">
-                <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
+                <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
             </div>
         </div>
     

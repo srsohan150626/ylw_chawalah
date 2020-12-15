@@ -34,7 +34,7 @@
         <a href="{{url('/fastfood')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
-        <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
+      <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
     </div>
 
     <div class="card ml-2 mr-2" style="top:130px; background-color: seashell; opacity:0.9">
