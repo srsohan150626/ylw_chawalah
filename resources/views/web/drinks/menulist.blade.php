@@ -21,12 +21,8 @@
 @endpush
 @section('contents')
 <div class="bground test">
-
-    <div class="overlay">
-        <a href="{{url('/drinks')}}"><img class="dttoprightimg" src="{{asset('web/img/new___icons_01_1604995968.png')}}" /></a>
-    </div>
     
-    <div class="overlayhome">
+    <div class="overlay">
         <a href="{{ url()->previous() }}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
     </div>
 
@@ -37,7 +33,7 @@
       <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
     </div>
 
-    <div class="card ml-2 mr-2" style="top:130px; background-color: seashell; opacity:0.9">
+    <div class="card ml-2 mr-2" style="top:60px; background-color: seashell; opacity:0.9">
         <div class="card-body">
           <h3 class="vrr" style="color: burlywood;"><b>{{ $menuitems[0]->categories_name }}</b></h3>
           <span class="vrr mt-1" style="color: burlywood;">{{ $tot_item }} Items</span>

@@ -132,7 +132,6 @@
                     // imagePath:"../img/coyaiconforgif_17__2_.gif" //If you want can you insert your custom image
                 });
     </script>
-
     @endpush
     @endsection
     
