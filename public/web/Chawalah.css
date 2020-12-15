@@ -165,13 +165,19 @@ white-space: normal;
 }
 
 .test-box {
-   -webkit-transform-origin: 0 0;
+   /* -webkit-transform-origin: 0 0;
   -webkit-transform: rotateY(-45deg);
-  animation:swivel 2s ease-in-out infinite alternate;
-
+  animation:swivel 2s ease-in-out infinite alternate; */
+  animation: mymove infinite 10s linear ;
+ 
+}
+@keyframes mymove {
+  50% {
+    transform: rotateY(360deg);
+  }
 }
 
-@keyframes swivel {
+/* @keyframes swivel {
   from { -webkit-transform: rotateY(-90deg);}
   to {-webkit-transform: rotateY(90deg);}
-}
+} */
