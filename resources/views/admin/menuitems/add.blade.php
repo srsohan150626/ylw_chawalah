@@ -175,9 +175,9 @@
                                                     <label for="name" class="col-sm-2 col-md-3 control-label">Is New?<span style="color:red;">*</span></label>
                                                     <div class="col-sm-10 col-md-8">
                                                         <select class="form-control field-validate prodcust-type" name="is_new">
-                                                            <option value="">Choose</option>
-                                                            <option value="1">Yes</option>
                                                             <option value="0">No</option>
+                                                            <option value="1">Yes</option>
+                                                            
                                                         </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                             Please choose 'yes' to set new with this item..</span>
                                                     </div>
