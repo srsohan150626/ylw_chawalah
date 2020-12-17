@@ -48,7 +48,7 @@
                                                             <select class="form-control" name="categories_id">
                                                                 <option value="">Select Category</option>
                                                                 @foreach ($result['categories'] as $categories)
-                                                                <option value="{{ $categories->categories_id }}">{{ $categories->categories_slug }}</option>
+                                                                <option value="{{ $categories->id }}">{{ $categories->name }}</option>
                                                                 @endforeach
                                                             </select><span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
                                                                 Choose category at least one category.</span>

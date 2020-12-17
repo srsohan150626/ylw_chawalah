@@ -66,7 +66,13 @@ class MenuItemsController extends Controller
     {
         $allimage = $this->images->getimages();
         $result = array();
-        $categories = Categories::all();
+        $categories = Categories::sortable(['categories_id'=>'DESC'])
+           ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
+           ->where('categories.parent_id','!=',0)
+            ->select('categories.categories_id as id', 'categories_description.categories_name as name')
+            ->get();
+
+        //$categories = Categories::all();
         $extras= Extraoptions::all();
         //dd($categories);
         $result['categories'] = $categories;
@@ -110,7 +116,11 @@ class MenuItemsController extends Controller
         //dd($request->id);
         $allimage = $this->images->getimages();
         $result = array();
-        $categories = Categories::all();
+        $categories = Categories::sortable(['categories_id'=>'DESC'])
+           ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
+           ->where('categories.parent_id','!=',0)
+            ->select('categories.categories_id as id', 'categories_description.categories_name as name')
+            ->get();
         //$extras= Extraoptions::all();
         $result = $this->item->edit($request);
        // dd($result);
