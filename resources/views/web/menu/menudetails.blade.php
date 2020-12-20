@@ -73,7 +73,7 @@
             </div>
 
             <div class="" style="top:0px;">
-              <img class="img-fluid"  src="{{asset($item->imgpath)}}"/>
+              <img class="imagesquare"  src="{{asset($item->imgpath)}}"/>
 
               <div class="card" style="opacity: 0.8; height: 370px;">
                 <div class="card-body">

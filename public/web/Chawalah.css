@@ -254,3 +254,7 @@ white-space: normal;
     right: 50px;
   }
  }
+ .imagesquare{
+  width:100%!important;
+  height: 100vw!important;
+}
