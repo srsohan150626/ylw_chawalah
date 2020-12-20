@@ -38,6 +38,8 @@ class HomeController extends Controller
     public function menudetails($id)
     {
         //dd($id);
+       
+
         $menuitems= DB::table('menuitems')
                     ->leftjoin('itemsto_categories','itemsto_categories.item_id','=','menuitems.item_id')
                     ->leftjoin('categories','categories.categories_id','=','itemsto_categories.categories_id')
@@ -54,13 +56,19 @@ class HomeController extends Controller
                      ->where('itemsto_categories.categories_id',$id)
                      ->select('menuitems.*','categories.categories_id','categories_description.categories_name','categoryTable.path as imgpath')
                      ->get();
+
         $tot_item= count($menuitems);
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
+                    ->where('categories.parent_id',9)
                     ->get();
+        //dd($categories);
+        $cat_name= DB::table('categories_description')
+        ->where('categories_id',$id)
+        ->get();
 
-        return view('web.menu.menudetails',compact('menuitems','tot_item','categories'));
+        return view('web.menu.menudetails',compact('menuitems','tot_item','categories','cat_name'));
     }
 
     public function list()

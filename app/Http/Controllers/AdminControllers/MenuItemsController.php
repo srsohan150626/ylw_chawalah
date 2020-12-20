@@ -126,7 +126,7 @@ class MenuItemsController extends Controller
        // dd($result);
         $result['categories'] = $categories;
         //$result['extras'] = $extras;
-
+        //dd($result['categories']);
         return view("admin.menuitems.edit")->with('result', $result)->with('allimage', $allimage);
 
     }
