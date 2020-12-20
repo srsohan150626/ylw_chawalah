@@ -23,15 +23,16 @@
     </style>
 @endpush
 @section('contents')
-  <div class="transprnt">
+  <div class="transprnt test">
         <div class="transbg"></div>
 
         
     <div class="dtbottomleft">
-        <img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/>
+      <a href="{{url('/drinks')}}"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
+    </div>
     </div>
     <div class="dtbottomright">
-        <img class="bottomrightimg" src="{{asset('web/img/ICONS-01B.png')}}"/>
+      <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
     </div>
 
   @if ($tot_item>0)

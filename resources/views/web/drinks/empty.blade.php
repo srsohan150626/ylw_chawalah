@@ -61,7 +61,7 @@
               </div>
         <div class="card text-center mlist" style="width: 18rem;top:125px;left:36px; opacity: 0.8;">
                     @foreach ($categories as $item)
-                    <span class="text-center vrr mt-3"><a href="{{url('/menulistdrinks/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
+                    <span class="text-center vrr mt-3"><a href="{{url('/menu/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
                     @endforeach
                     <br>
                 </ul>

@@ -9,9 +9,9 @@ Route::get('/menu/{id}','HomeController@menudetails');
 
 Route::group(['namespace' => 'Web'], function () {
     Route::get('/drinks','DrinksHomeController@index');
-    Route::get('/menulistdrinks/{id}','DrinksHomeController@menulist');
-    Route::get('/menudrinks/{id}/{slug}','DrinksHomeController@menudetails');
-
+    // Route::get('/menulistdrinks/{id}','DrinksHomeController@menulist');
+    // Route::get('/menudrinks/{id}/{slug}','DrinksHomeController@menudetails');
+    Route::get('/menudrinks/{id}','DrinksHomeController@menudetails');
     Route::get('/menu3','MenuThirdController@index');
     Route::get('/menulist3/{id}','MenuThirdController@menulist');
     Route::get('/menu3/{id}/{slug}','MenuThirdController@menudetails');
