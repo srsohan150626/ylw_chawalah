@@ -199,7 +199,7 @@ white-space: normal;
 .catcard{
   width: 24rem;
   opacity: 0.8;
-  top: 200px;
+  top: 300px;
   left: 12px;
 }
 .menucardlist{
@@ -212,7 +212,7 @@ white-space: normal;
   .catcard{
     width: 18rem;
     opacity: 0.8;
-    top: 200px;
+    top: 300px;
     left: 15px;
   }
   .menucardlist{
@@ -227,7 +227,7 @@ white-space: normal;
   .catcard{
     width: 21rem;
     opacity: 0.8;
-    top: 200px;
+    top: 300px;
     left: 12px;
   }
   .menucardlist{
@@ -241,7 +241,7 @@ white-space: normal;
   .catcard{
     width: 24rem;
     opacity: 0.8;
-    top: 200px;
+    top: 300px;
     left: 15px;
   }
   .menucardlist{
@@ -255,7 +255,7 @@ white-space: normal;
   .catcard{
     width: 46rem;
     opacity: 0.7;
-    top: 200px;
+    top: 300px;
     left: 12px;
   }
   .menucardlist{
@@ -270,7 +270,7 @@ white-space: normal;
   .catcard{
     width: 45rem;
     opacity: 0.8;
-    top: 200px;
+    top: 300px;
     left: 16px;
   }
   .menucardlist{
@@ -286,7 +286,7 @@ white-space: normal;
   .catcard{
     width: 77rem;
     opacity: 0.8;
-    top: 250px;
+    top: 300px;
     left: 50px;
     right: 50px;
   }
