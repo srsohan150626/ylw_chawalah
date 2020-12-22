@@ -28,12 +28,12 @@
         <div class="transbg"></div>
 
         
-    <div class="dtbottomleft">
+    {{-- <div class="dtbottomleft">
       <a href="{{url('/fastfood')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
       <a href="{{url('/drinks')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
-    </div>
+    </div> --}}
 
   
     <div class="swiper-container ">

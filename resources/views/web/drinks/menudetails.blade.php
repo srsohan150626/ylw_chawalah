@@ -28,12 +28,12 @@
         <div class="transbg"></div>
 
         
-    <div class="dtbottomleft">
+    {{-- <div class="dtbottomleft">
       <a href="{{url('/fastfood')}}"><img class="bottomleftimg" src="{{asset('web/img/Food-01B.png')}}"/></a>
     </div>
     <div class="dtbottomright">
       <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
-    </div>
+    </div> --}}
 
     @if ($tot_item>0)
     <div class="swiper-container ">

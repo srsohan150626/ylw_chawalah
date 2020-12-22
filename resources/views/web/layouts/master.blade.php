@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
     {{-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> --}}
+    <link rel="stylesheet" href="{{asset('web/font-awesome/css/font-awesome.min.css')}}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Popper JS -->
@@ -33,7 +34,7 @@
 
     @stack('scripts')
 
-    <script>
+    {{-- <script>
         $(document).ready(
             $('.bottomleftimg').click(function(){
                 $('.test').addClass( "test-box" );
@@ -45,6 +46,6 @@
         $('.menu3').click(function(){
             $('.test').addClass( "test-box-menu3" );
         })
-  </script>
+  </script> --}}
 </body>
 </html>

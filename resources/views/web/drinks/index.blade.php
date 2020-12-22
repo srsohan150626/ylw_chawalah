@@ -54,12 +54,13 @@
     <div class="bg test">
         <div class="">
         
-            <div class="bottomleft">
-                <a href="{{url('/fastfood')}}"><img class="bottomleftimg bottomleftimgdrink" src="{{asset('web/img/Food-01B.png')}}"/></a>
+            {{-- <div class="bottomleft">
+                <a href="{{url('/fastfood')}}"></a>
+                    <img class="bottomleftimg bottomleftimgdrink" src="{{asset('web/img/Food-01B.png')}}"/>
             </div>
             <div class="bottomright">
                 <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
-            </div>
+            </div> --}}
         </div>
     
         <div id="mySwipe" class="swipe resslider">

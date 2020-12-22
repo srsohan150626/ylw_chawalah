@@ -37,6 +37,7 @@ class Menuitems extends Model
             'is_new' => $request->is_new,
             'item_description' => $request->item_description,
             'item_type' => 0,
+            'ingredients' => $request->ingredients
         ]);
     
         $slug_flag = false;
@@ -173,7 +174,6 @@ public function edit($request){
         ->get();
 
     $result['itemsto_categories'] = $itemsto_categories;
-
     return $result;
   }
 
@@ -195,7 +195,8 @@ public function edit($request){
         'item_last_modified' => $item_last_modified,
         'item_status' => $request->item_status,
         'is_new' => $request->is_new,
-        'item_description' => $request->item_description
+        'item_description' => $request->item_description,
+        'ingredients' => $request->ingredients
     ]);
 
      //delete categories

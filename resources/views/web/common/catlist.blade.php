@@ -9,7 +9,7 @@
 
     <div class="card text-center menucardlist">
           @foreach ($categories as $item)
-          <span class="text-center vrr mt-3"><a href="{{url('/menu/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
+          <span class="text-center vrr mt-3"><a href="{{url('/menulist/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
           @endforeach
           <br>
       

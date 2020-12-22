@@ -216,6 +216,34 @@
                                             </div>
                                         </div>
 
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <div class="tabbable tabs-left">
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="active"><a href="#product" data-toggle="tab">English<span style="color:red;">*</span></a></li>
+                                                        
+                                                    </ul>
+                                                    <div class="tab-content">
+
+                                                        <div style="margin-top: 15px;" class="tab-pane active" id="product_1">
+                                                            <div class="">
+
+                                                                <div class="form-group">
+                                                                    <label for="name" class="col-sm-2 col-md-3 control-label">Ingredients<span style="color:red;">*</span> (English)</label>
+                                                                    <div class="col-sm-10 col-md-8">
+                                                                        <textarea id="editor_ingrad" name="ingredients" class="form-control" rows="5"></textarea>
+                                                                        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
+                                                                            Enter Menu Ingredients in English</span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <!-- /.box-body -->
                                         <div class="box-footer text-center">
                                             <button type="submit" class="btn btn-primary ">
@@ -254,6 +282,16 @@
         CKEDITOR.replace('editor');
         $(".textarea").wysihtml5();
 
-    });
+    }); 
+</script>
+
+<script type="text/javascript">
+    $(function() {
+
+        //bootstrap WYSIHTML5 - text editor
+        CKEDITOR.replace('editor_ingrad');
+        $(".textarea").wysihtml5();
+
+    }); 
 </script>
 @endsection

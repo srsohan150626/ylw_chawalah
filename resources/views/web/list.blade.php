@@ -60,12 +60,12 @@
     <div class="bg test">
         <div class="">
         
-            <div class="bottomleft">
+            {{-- <div class="bottomleft">
                 <a href="{{url('/drinks')}}"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/></a>
             </div>
             <div class="bottomright">
                 <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
-            </div>
+            </div> --}}
             <div class="toprightbottom">
                 <a href="{{url('/')}}"> <img class="toprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}"/></a>
             </div>
@@ -76,8 +76,9 @@
 
                 <div class="card " style="width: 18rem; opacity: 0.8;">
                     @foreach ($categories as $item)
-                    <span class="text-center vrr mt-3"><a href="{{url('/menu/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
+                    <span class="text-center vrr mt-3"><a href="{{url('/menulist/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
                     @endforeach
+                    <small class="text-center vrr mt-4"><b><i class="fa fa fa-hand-pointer-o"></i> Click on Menucategory</b></small>
                     <br>
               </div>
 
