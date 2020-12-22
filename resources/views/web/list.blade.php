@@ -82,17 +82,32 @@
                     <br>
               </div>
 
-                <div class="card next" style="width: 18rem; opacity: 0.8;">
+              
+                  <div class="card next" style="width: 18rem; opacity: 0.8;">
                    
                     <div class="card-body">
                         <br>
-                      <h3 class="card-title text-center gza"> <b class="gza" style="font-size: larger;">YELLOW</b> </h3>
-                      <p class="card-text text-center vrr">{{ strip_tags($hometext[0]->upper_text) }}</p>
+                      <h3 class="card-title text-center yellow_label"> <b class="gza" >YELLOW</b> </h3>
+                      <p class="card-text text-center vrr home_text_1">
+                          @if (isset($hometext[0]->upper_text))
+                          {{ strip_tags($hometext[0]->upper_text) }}
+                          @endif
+                          
+                        </p>
                         <br>
-                        <p class="card-text text-center vrr2" >{{ strip_tags($hometext[0]->lower_text) }}</p>
-                        <br>
+                        <p class="card-text text-center vrr home_text_2" >
+                            @if (isset($hometext[0]->lower_text))
+                            {{strip_tags($hometext[0]->lower_text)}}
+                            @endif
+                            <br>
+                            <br>
+                            <span class="vrr" style="font-size: larger;"><i class="fa fa-share"></i>   Swipe Right</span>
+                        </p>
+                        {{-- <span class="card-text text-center vrr"><i class="fa fa-reply"></i> Swipe Left</span> --}}
+                 
                     </div>
                   </div>
+
 
                   
                   
