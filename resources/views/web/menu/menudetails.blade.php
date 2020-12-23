@@ -16,7 +16,17 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 730px;
+        height: 750px;
+      }
+      @media (min-width: 1200px) { 
+        .transbg{
+          height: 1200px;
+        }
+      }
+      @media (min-width: 720px) { 
+        .transbg{
+          height: 1076px;
+        }
       }
     </style>
 @endpush

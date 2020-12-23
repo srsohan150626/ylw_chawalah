@@ -15,7 +15,7 @@
         background: url("{{asset('web/img/tableabove10001499.jpg')}}") center center;
         /* width: 100%; */
         /* background-image: url("{{asset('web/img/tableabove10001499.jpg')}}"); */
-        height: 730px;
+        height: 750px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
