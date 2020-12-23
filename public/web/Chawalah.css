@@ -315,6 +315,11 @@ white-space: normal;
 .usermsg{
   margin-left: 10px;
 }
+@media (min-width: 411px) { 
+  .usermsg{
+    margin-left: 35px;
+  }
+}
 @media (min-width: 720px) { 
   .usermsg{
     margin-left: 195px;
