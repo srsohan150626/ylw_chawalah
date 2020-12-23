@@ -15,10 +15,20 @@
         background: url("{{asset('web/img/tableabove10001499.jpg')}}") center center;
         /* width: 100%; */
         /* background-image: url("{{asset('web/img/tableabove10001499.jpg')}}"); */
-        /* height: 100%; */
+        height: 730px;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
+      }
+      @media (min-width: 1200px) { 
+        .transbg{
+          height: 1200px;
+        }
+      }
+      @media (min-width: 720px) { 
+        .transbg{
+          height: 1076px;
+        }
       }
     </style>
 @endpush
@@ -62,7 +72,9 @@
                         <span class="vrr "> {!! str_limit(strip_tags($item->ingredients), $limit = 45, $end = '...') !!} </span>
 
                     @endforeach
-                    
+                    <br>
+                    <br>
+                    <span class="vrr usermsg" style="font-size: larger;"><i class="fa fa-reply"></i> Swipe Left or Click on Menu <i class="fa fa fa-hand-pointer-o"></i> </span>
               </div>
             </div>
 

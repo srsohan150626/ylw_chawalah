@@ -267,6 +267,14 @@ white-space: normal;
     left: 16px;
   }
  } 
+ @media (min-width: 720px) { 
+  .catcard{
+    width: 50rem;
+    opacity: 0.7;
+    /* top: 125px; */
+    /* left: 14px; */
+  }
+}
 
 @media (min-width: 992px) { 
   .catcard{
@@ -303,4 +311,17 @@ white-space: normal;
  .imagesquare{
   width:100%!important;
   height: 100vw!important;
+}
+.usermsg{
+  margin-left: 10px;
+}
+@media (min-width: 720px) { 
+  .usermsg{
+    margin-left: 195px;
+  }
+}
+@media (min-width: 1200px) { 
+  .usermsg{
+    margin-left: 460px;
+  }
 }
