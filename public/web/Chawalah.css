@@ -313,7 +313,7 @@ white-space: normal;
   height: 100vw!important;
 }
 .usermsg{
-  margin-left: 10px;
+  margin-left: 20px;
 }
 @media (min-width: 411px) { 
   .usermsg{
