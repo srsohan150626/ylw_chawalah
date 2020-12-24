@@ -65,7 +65,7 @@
                     @foreach ($menuitems as $item)
                     
                         <div class="mt-2">
-                            <a href="{{url('/menu/'.$item->categories_id.'/'.$item->item_slug)}}" style="color: black;"><span class="vrr"><b>  {!! str_limit(strip_tags($item->item_name), $limit = 25, $end = '...') !!}</b></span></a>
+                            <a href="{{url('/menu/'.$item->categories_id.'/'.$item->item_slug)}}" style="color: black;text-decoration:none"><span class="vrr"><b>  {!! str_limit(strip_tags($item->item_name), $limit = 25, $end = '...') !!}</b></span></a>
                             <span  style="color: burlywood;float: right;"><b>{{ $item->item_price}}</b></span> 
                             
                         </div>

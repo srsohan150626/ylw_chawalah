@@ -96,7 +96,7 @@
 
                   <div class="card next" style="width: 18rem; opacity: 0.8;">
                         @foreach ($categories as $item)
-                        <span class="text-center vrr mt-3"><a  href="{{url('/menulist/'.$item->categories_id)}}" style="color: black;"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
+                        <span class="text-center vrr mt-3"><a  href="{{url('/menulist/'.$item->categories_id)}}" style="color: black;text-decoration:none"><b class="uprcse">{{ $item->categories_name }}</b></a> </span>
                         @endforeach
                         <small class="text-center vrr mt-4"><b><i class="fa fa fa-hand-pointer-o"></i> Click on Menucategory</b></small>
                         <br>
