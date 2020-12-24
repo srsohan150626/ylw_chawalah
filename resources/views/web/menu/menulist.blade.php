@@ -72,7 +72,7 @@
                         @if (isset($item->ingredients))
                         <span class="vrr "> {!! str_limit(strip_tags($item->ingredients), $limit = 45, $end = '...') !!} </span>
                         @else 
-                        <span class="vrr "> {!! str_limit(strip_tags($item->item_description), $limit = 45, $end = '...') !!} </span>
+                        <span class="vrr "> {!! str_limit(strip_tags($item->item_description), $limit = 35, $end = '...') !!} </span>
                         @endif
                      
 
