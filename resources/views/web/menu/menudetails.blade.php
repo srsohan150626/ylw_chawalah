@@ -42,6 +42,10 @@
     <div class="dtbottomright">
       <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
     </div> --}}
+    <div class="bottomleft"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/>
+    </div>
+    <div class="bottomright"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/>
+    </div>
     <div class="swiper-container ">
       <div class="swiper-wrapper">
         <div class="swiper-slide">

@@ -66,6 +66,10 @@
             <div class="bottomright">
                 <a href="{{url('/menu3')}}"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/></a>
             </div> --}}
+            <div class="bottomleft"><img class="bottomleftimg" src="{{asset('web/img/ICONS-04B.png')}}"/>
+            </div>
+            <div class="bottomright"><img class="bottomrightimg menu3" src="{{asset('web/img/ICONS-01B.png')}}"/>
+            </div>
             <div class="toprightbottom">
                 <a href="{{url('/')}}"> <img class="toprightimgbottom" src="{{asset('web/img/new___icons_01_1604995968.png')}}"/></a>
             </div>
