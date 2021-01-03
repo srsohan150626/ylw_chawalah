@@ -21,12 +21,12 @@ class Menuitems extends Model
     public function insert($request){
 
         $date_added	= date('Y-m-d h:i:s');
-    
-        if($request->image_id !== null){
-          $uploadImage = $request->image_id;
-        }else{
-            $uploadImage = '';
+        $description= $request->item_description;
+        if(!isset( $description))
+        {
+            $description= "";
         }
+    
         if($request->hasFile('image')) {
             $imageName = time().'-'.$request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $imageName);
@@ -41,7 +41,7 @@ class Menuitems extends Model
             'item_status' => $request->item_status,
             'item_slug' => 0,
             'is_new' => $request->is_new,
-            'item_description' => $request->item_description,
+            'item_description' => $description,
             'item_type' => 0,
             'ingredients' => $request->ingredients
         ]);
@@ -189,6 +189,8 @@ public function edit($request){
         if (File::exists($oldfile)) {
             File::delete($oldfile);
         }
+    } else{
+        $imageName= $request->oldImage;
     }
 
      DB::table('menuitems')->where('item_id',$item_id)->update([

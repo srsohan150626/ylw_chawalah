@@ -12,8 +12,9 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
+                    ->where('categories.parent_id','!=',0)
                     ->get();
+
         $hometext= DB::table('hometexts')
                 ->where('status',1)
                 ->get();
@@ -68,7 +69,7 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
+                    ->where('categories.parent_id','!=',0)
                     ->get();
        // dd($categories);
        $hometext= DB::table('hometexts')
