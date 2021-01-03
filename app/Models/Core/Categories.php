@@ -26,15 +26,7 @@ class Categories extends Model
 
       $categories = Categories::sortable(['categories_id'=>'DESC'])
            ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
-           ->LeftJoin('image_categories as categoryTable', function ($join) {
-                $join->on('categoryTable.image_id', '=', 'categories.categories_image')
-                    ->where(function ($query) {
-                        $query->where('categoryTable.image_type', '=', 'THUMBNAIL')
-                            ->where('categoryTable.image_type', '!=', 'THUMBNAIL')
-                            ->orWhere('categoryTable.image_type', '=', 'ACTUAL');
-                    });
-            })
-            ->select('categories.categories_id as id', 'categories.categories_image as image','categories.created_at as date_added', 'categories.updated_at as last_modified','categories.parent_id as parent_id', 'categories_description.categories_name as name','categoryTable.path as imgpath','categories.categories_status  as categories_status')
+            ->select('categories.categories_id as id','categories.created_at as date_added', 'categories.updated_at as last_modified','categories.parent_id as parent_id', 'categories_description.categories_name as name','categories.categories_status  as categories_status')
             ->paginate(50);
             //->paginate($commonsetting['pagination']);
 
@@ -44,7 +36,7 @@ class Categories extends Model
     public function getter($language_id){
       $listingCategories = DB::table('categories')
           ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
-          ->select('categories.categories_id as id', 'categories.categories_image as image',  'categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories_description.categories_name as name', 'categories.categories_slug as slug'
+          ->select('categories.categories_id as id',  'categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories_description.categories_name as name', 'categories.categories_slug as slug'
           , 'categories.parent_id')
           ->where('categories_description.language_id','=', $language_id )
           ->where('parent_id','>', '0')
@@ -58,7 +50,7 @@ class Categories extends Model
     public function allcategories($language_id){
         $listingCategories = DB::table('categories')
             ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
-            ->select('categories.categories_id as id', 'categories.categories_image as image',  'categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories_description.categories_name as name', 'categories.categories_slug as slug')
+            ->select('categories.categories_id as id',  'categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories_description.categories_name as name', 'categories.categories_slug as slug')
             ->where('categories_description.language_id','=', $language_id )
             ->where('categories_status', '1')
             ->get();
@@ -71,24 +63,16 @@ class Categories extends Model
       $param = $data['parameter'];
       $categories = Categories::sortable(['categories_id'=>'ASC'])
       ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
-          ->leftJoin('images','images.id', '=', 'categories.categories_image')
-          ->leftJoin('image_categories as categoryTable','categoryTable.image_id', '=', 'categories.categories_image')
-          ->select('categories.categories_id as id', 'categories.categories_image as image',
+          ->select('categories.categories_id as id',
            'categories.created_at as date_added','categories.updated_at as last_modified', 'categories_description.categories_name as name','categoryTable.path as imgpath','categories.categories_status  as categories_status')
-          ->where(function($query) {
-              $query->where('categoryTable.image_type', '=',  'THUMBNAIL')
-                  ->where('categoryTable.image_type','!=',   'THUMBNAIL')
-                  ->orWhere('categoryTable.image_type','=',   'ACTUAL');
-          })
           ->where('categories_description.categories_name', 'LIKE', '%' . $param . '%')
           ->paginate(10);
 
         return $categories;
     }
 
-    public function insert($uploadImage,$date_added,$categories_status,$parent_id){
+    public function insert($date_added,$categories_status,$parent_id){
         $categories = DB::table('categories')->insertGetId([
-            'categories_image'   =>   $uploadImage,
             'created_at'		 =>   $date_added,
             'categories_slug'    =>   'Null',
             'categories_status' => $categories_status,
@@ -110,21 +94,16 @@ class Categories extends Model
     }
 
     public function edit($request){
-        $category = DB::table('categories') ->leftJoin('images','images.id', '=', 'categories.categories_image')
-            ->leftJoin('image_categories as ImageTable','ImageTable.image_id', '=', 'categories.categories_image')
-            ->leftJoin('image_categories as IconTable','IconTable.image_id', '=', 'categories.categories_icon')
-            ->select('categories.categories_id as id', 'categories.categories_image as image',
-            'categories.categories_icon as icon',  'categories.created_at as date_added',
-            'categories.updated_at as last_modified', 'categories.categories_slug as slug',
-            'ImageTable.path as imagepath','IconTable.path as iconpath')
+        $category = DB::table('categories')
+            ->select('categories.categories_id as id', 'categories.created_at as date_added',
+            'categories.updated_at as last_modified', 'categories.categories_slug as slug')
             ->where('categories.categories_id', $request->id)->get();
         return $category;
     }
 
-    public function updaterecord($categories_id,$uploadImage,$last_modified,$slug,$categories_status,$parent_id){
+    public function updaterecord($categories_id,$last_modified,$slug,$categories_status,$parent_id){
         DB::table('categories')->where('categories_id', $categories_id)->update(
         [
-            'categories_image'   =>   $uploadImage,
             'updated_at'  	     =>   $last_modified,
             'categories_slug'    =>   $slug,
             'categories_status'=>$categories_status,
@@ -169,8 +148,7 @@ class Categories extends Model
 
     public function editsubcategory($request){
         $editSubCategory = DB::table('categories')
-            ->leftJoin('image_categories as categoryTable','categoryTable.image_id', '=', 'categories.categories_image')
-            ->select('categories.categories_id as id', 'categories.categories_image as image','categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories.categories_slug as slug', 'categories.categories_status  as categories_status','categories.parent_id as parent_id','categoryTable.path as imgpath')
+            ->select('categories.categories_id as id','categories.created_at as date_added', 'categories.updated_at as last_modified', 'categories.categories_slug as slug', 'categories.categories_status  as categories_status','categories.parent_id as parent_id')
             ->where('categories.categories_id', $request->id)->get();
         return $editSubCategory;
     }

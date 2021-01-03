@@ -46,11 +46,10 @@ class CategoriesController extends Controller
         $result = array();
 
         $categoryName = $request->categoryName;
-        $uploadImage = $request->image_id;
         $categories_status  = $request->categories_status;
         $parent_id = $request->parent_id;
 
-        $categories_id = $this->Categories->insert($uploadImage,$date_added,$categories_status,$parent_id);
+        $categories_id = $this->Categories->insert($date_added,$categories_status,$parent_id);
         $slug_flag = false;
 
         //slug
@@ -83,15 +82,15 @@ class CategoriesController extends Controller
   }
 
   public function edit(Request $request){
-    $images = new Images;
-    $allimage = $images->getimages();
 
     $result = array();
     $result['message'] = array();
 
     $editSubCategory = $this->Categories->editsubcategory($request);
+    //dd($editSubCategory);
     $categories = $this->Categories->paginator();
     $description_data = array();
+    //dd($categories);
     
     $id = $request->id;
     $description = $this->Categories->editdescription($id);
@@ -106,7 +105,7 @@ class CategoriesController extends Controller
     //dd($result['editSubCategory']);
     $result['categories'] = $categories;
 
-    return view("admin.categories.edit")->with('result', $result)->with('allimage', $allimage);
+    return view("admin.categories.edit")->with('result', $result);
    }
 
    public function update(Request $request){
@@ -136,13 +135,8 @@ class CategoriesController extends Controller
      }else{
          $slug = $request->slug;
      }
-     if($request->image_id!==null){
-         $uploadImage = $request->image_id;
-     }else{
-         $uploadImage = $request->oldImage;
-     }
 
-     $updateCategory = $this->Categories->updaterecord($categories_id,$uploadImage,$last_modified,$slug,$categories_status,$parent_id);
+     $updateCategory = $this->Categories->updaterecord($categories_id,$last_modified,$slug,$categories_status,$parent_id);
 
        $checkExist = $this->Categories->checkExit($categories_id);
          $categories_name = $request->category_name;

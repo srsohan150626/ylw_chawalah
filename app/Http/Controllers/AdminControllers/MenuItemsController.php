@@ -32,14 +32,6 @@ class MenuItemsController extends Controller
 
         $categories = Categories::all();
         $menuitems= DB::table('menuitems')
-                    ->LeftJoin('image_categories', function ($join) {
-                        $join->on('image_categories.image_id', '=', 'menuitems.item_image')
-                            ->where(function ($query) {
-                                $query->where('image_categories.image_type', '=', 'THUMBNAIL')
-                                    ->where('image_categories.image_type', '!=', 'THUMBNAIL')
-                                    ->orWhere('image_categories.image_type', '=', 'ACTUAL');
-                            });
-                    })
                     ->leftJoin('itemsto_categories', 'menuitems.item_id', '=', 'itemsto_categories.item_id')
                     ->leftJoin('categories', 'categories.categories_id', '=', 'itemsto_categories.categories_id')
                     ->leftJoin('categories_description', 'categories.categories_id', '=', 'categories_description.categories_id')
@@ -49,10 +41,10 @@ class MenuItemsController extends Controller
                     ->when($item, function($q) use ($item) {
                         return $q->where('menuitems.item_name','like', '%'.$item. '%');
                     })
-                    ->select('menuitems.*','image_categories.path as path','categories_description.categories_id','categories_description.categories_name')
+                    ->select('menuitems.*','categories_description.categories_id','categories_description.categories_name')
                     ->orderby('menuitems.item_id','DESC')
                     ->paginate(30);
-        //dd($menuitems)  
+        //dd($menuitems)  ;
         $tot_item= count($menuitems);
         //$menuitems = $this->item->paginator($request);
         $results['menuitems'] = $menuitems;
@@ -113,8 +105,6 @@ class MenuItemsController extends Controller
 
     public function edit(Request $request)
     {
-        //dd($request->id);
-        $allimage = $this->images->getimages();
         $result = array();
         $categories = Categories::sortable(['categories_id'=>'DESC'])
            ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
@@ -127,7 +117,7 @@ class MenuItemsController extends Controller
         $result['categories'] = $categories;
         //$result['extras'] = $extras;
         //dd($result['categories']);
-        return view("admin.menuitems.edit")->with('result', $result)->with('allimage', $allimage);
+        return view("admin.menuitems.edit")->with('result', $result);
 
     }
 

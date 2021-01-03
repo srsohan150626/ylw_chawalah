@@ -89,7 +89,10 @@
                                             @foreach ($results['menuitems'] as  $key=>$item)
                                                 <tr>
                                                     <td>{{ $loop->index+1 }}</td>
-                                                    <td><img src="{{asset($item->path)}}" alt="" height="50px"></td>
+                                                    <td>
+                                                        {{-- <img src="{{asset($item->path)}}" alt="" height="50px"> --}}
+                                                        <img src="{{URL::to('images/' . $item->item_image)}}" alt="" height="50px">
+                                                    </td>
                                                     <td>
                                                         {{ $item->categories_name }}
                                                     </td>

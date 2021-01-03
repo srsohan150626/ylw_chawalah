@@ -9,6 +9,7 @@ use App\Models\Core\Setting;
 use App\Models\Core\Categories;
 use Carbon\Carbon;
 use Kyslik\ColumnSortable\Sortable;
+use File;
 
 class Menuitems extends Model
 {
@@ -26,9 +27,14 @@ class Menuitems extends Model
         }else{
             $uploadImage = '';
         }
+        if($request->hasFile('image')) {
+            $imageName = time().'-'.$request->image->getClientOriginalName();
+            $request->image->move(public_path('images'), $imageName);
+            //$item_image = $imageName;
+        }
 
         $item_id = DB::table('menuitems')->insertGetId([
-            'item_image' => $uploadImage,
+            'item_image' => $imageName,
             'item_name' => $request->item_name,
             'item_price' => $request->item_price,
             'item_date_added' => $date_added,
@@ -153,15 +159,6 @@ public function edit($request){
     $result = array();
 
     $item = DB::table('menuitems')
-        ->LeftJoin('image_categories', function ($join) {
-            $join->on('image_categories.image_id', '=', 'menuitems.item_image')
-                ->where(function ($query) {
-                    $query->where('image_categories.image_type', '=', 'THUMBNAIL')
-                        ->where('image_categories.image_type', '!=', 'THUMBNAIL')
-                        ->orWhere('image_categories.image_type', '=', 'ACTUAL');
-                });
-
-        })
         ->where('menuitems.item_id', '=', $item_id)
         ->get();
     $result['item'] = $item;
@@ -182,14 +179,20 @@ public function edit($request){
     $item_id      =   $request->id;
     $item_last_modified	= date('Y-m-d h:i:s');
     
-    if($request->image_id !== null){
-        $uploadImage = $request->image_id;
-    }else{
-        $uploadImage = $request->oldImage;
+    if($request->hasFile('image')) {
+        //$imageName = time().'.'.$request->image->getClientOriginalExtension();
+        $imageName = time().'-'.$request->image->getClientOriginalName();
+        $request->image->move(public_path('images'), $imageName);
+
+        //deleting old image
+        $oldfile = public_path('images/').$request->oldImage;
+        if (File::exists($oldfile)) {
+            File::delete($oldfile);
+        }
     }
 
      DB::table('menuitems')->where('item_id',$item_id)->update([
-        'item_image' => $uploadImage,
+        'item_image' => $imageName,
         'item_name' => $request->item_name,
         'item_price' => $request->item_price,
         'item_last_modified' => $item_last_modified,

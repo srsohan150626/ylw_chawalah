@@ -11,7 +11,7 @@
           </a>
         </li>
  
-      <li class="treeview {{ Request::is('admin/media/add') ? 'active' : '' }}">
+      {{-- <li class="treeview {{ Request::is('admin/media/add') ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-picture-o"></i> <span>Media</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
@@ -24,7 +24,7 @@
           </li>
 
         </ul>
-      </li>
+      </li> --}}
 
      
         

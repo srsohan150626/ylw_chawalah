@@ -100,7 +100,9 @@
             </div>
 
             <div class="" style="top:0px;">
-              <img class="imagesquare"  src="{{asset($item->imgpath)}}"/>
+              {{-- <img class="imagesquare"  src="{{asset($item->item_image)}}"/> --}}
+              <img class="imagesquare"  src="{{URL::to('images/' . $item->item_image)}}" alt="" >
+              
 
               <div class="card" style="opacity: 0.8; height: 370px;">
                 <div class="card-body">

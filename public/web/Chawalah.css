@@ -120,7 +120,7 @@ font-size: 18px;
 }
 .overlayone{
   position: absolute;
-  top: 350px;
+  top: 305px;
   left: 3px;
 }
 .uprcse{
@@ -329,4 +329,11 @@ white-space: normal;
   .usermsg{
     margin-left: 460px;
   }
+}
+.old-cat-img {
+  width: 50px;
+  border: 1px solid #ddd;
+  text-align: center;
+  display: inline-block;
+  margin-left: 40px;
 }

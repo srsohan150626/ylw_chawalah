@@ -81,7 +81,8 @@
                                 @foreach($images as $image)
                                 <div class="col-xs-4 col-md-2 margin-bottomset">
                                     <div class="thumbnail thumbnail-imges">
-                                        <img class="test_image" image_id="{{$image->id}}" src="{{asset($image->path)}}" alt="...">
+                                        <img class="test_image" image_id="{{$image->id}}" src="{{asset('storage/'.$image->path)}}" alt="...">
+                                        
                                     </div>
                                     <a class="btn btn-block btn-primary" href="{{url('admin/media/detail')}}/{{$image->id}}">Details</a>
                                 </div>

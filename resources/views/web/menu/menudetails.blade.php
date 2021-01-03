@@ -59,7 +59,8 @@
           </div>
 
           <div class="" style="top:0px;">
-              <img class="imagesquare"  src="{{asset($menuitemsindividual[0]->imgpath)}}"/>
+              {{-- <img class="imagesquare"  src="{{asset($menuitemsindividual[0]->imgpath)}}"/> --}}
+              <img class="imagesquare"  src="{{URL::to('images/' . $menuitemsindividual[0]->item_image)}}" alt="" >
               <div class="card" style="opacity: 0.8; height: 370px;">
                 <div class="card-body">
                   <div class="text-center mt-4">
@@ -92,7 +93,8 @@
         </div>
 
         <div class="" style="top:0px;">
-          <img class="imagesquare"  src="{{asset($item->imgpath)}}"/>
+          {{-- <img class="imagesquare"  src="{{asset($item->imgpath)}}"/> --}}
+          <img class="imagesquare"  src="{{URL::to('images/' . $item->item_image)}}" alt="" >
 
           <div class="card" style="opacity: 0.8; height: 370px;">
             <div class="card-body">
