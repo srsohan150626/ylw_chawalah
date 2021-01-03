@@ -60,7 +60,6 @@ class MenuItemsController extends Controller
         $result = array();
         $categories = Categories::sortable(['categories_id'=>'DESC'])
            ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
-           ->where('categories.parent_id','!=',0)
             ->select('categories.categories_id as id', 'categories_description.categories_name as name')
             ->get();
 
@@ -108,7 +107,6 @@ class MenuItemsController extends Controller
         $result = array();
         $categories = Categories::sortable(['categories_id'=>'DESC'])
            ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
-           ->where('categories.parent_id','!=',0)
             ->select('categories.categories_id as id', 'categories_description.categories_name as name')
             ->get();
         //$extras= Extraoptions::all();
