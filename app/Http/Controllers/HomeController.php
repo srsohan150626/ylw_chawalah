@@ -12,7 +12,6 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id','!=',0)
                     ->get();
 
         $hometext= DB::table('hometexts')
@@ -27,7 +26,6 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
                     ->get();
         $hometext= DB::table('hometexts')
                 ->where('status',1)
@@ -54,7 +52,6 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
                     ->get();
         //dd($categories);
         $cat_name= DB::table('categories_description')
@@ -69,7 +66,6 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id','!=',0)
                     ->get();
        // dd($categories);
        $hometext= DB::table('hometexts')
@@ -95,7 +91,6 @@ class HomeController extends Controller
         $categories= DB::table('categories')
         ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
         ->where('categories.categories_status',1)
-        ->where('categories.parent_id',9)
         ->get();
 
         if($tot_item==0)
@@ -114,16 +109,8 @@ class HomeController extends Controller
                     ->leftjoin('itemsto_categories','itemsto_categories.item_id','=','menuitems.item_id')
                     ->leftjoin('categories','categories.categories_id','=','itemsto_categories.categories_id')
                     ->leftjoin('categories_description','categories_description.categories_id','=','itemsto_categories.categories_id')
-                    ->LeftJoin('image_categories as categoryTable', function ($join) {
-                        $join->on('categoryTable.image_id', '=', 'menuitems.item_image')
-                            ->where(function ($query) {
-                                $query->where('categoryTable.image_type', '=', 'THUMBNAIL')
-                                    ->where('categoryTable.image_type', '!=', 'THUMBNAIL')
-                                    ->orWhere('categoryTable.image_type', '=', 'ACTUAL');
-                            });
-                     })
                      ->where('menuitems.item_slug',$slug)
-                     ->select('menuitems.*','categories.categories_id','categories_description.categories_name','categoryTable.path as imgpath')
+                     ->select('menuitems.*','categories.categories_id','categories_description.categories_name')
                      ->get();
          
         //dd($slug);
@@ -131,18 +118,10 @@ class HomeController extends Controller
                     ->leftjoin('itemsto_categories','itemsto_categories.item_id','=','menuitems.item_id')
                     ->leftjoin('categories','categories.categories_id','=','itemsto_categories.categories_id')
                     ->leftjoin('categories_description','categories_description.categories_id','=','itemsto_categories.categories_id')
-                    ->LeftJoin('image_categories as categoryTable', function ($join) {
-                        $join->on('categoryTable.image_id', '=', 'menuitems.item_image')
-                            ->where(function ($query) {
-                                $query->where('categoryTable.image_type', '=', 'THUMBNAIL')
-                                    ->where('categoryTable.image_type', '!=', 'THUMBNAIL')
-                                    ->orWhere('categoryTable.image_type', '=', 'ACTUAL');
-                            });
-                     })
                      ->where('menuitems.item_status',1)
                      ->where('menuitems.item_slug','!=',$slug)
                      ->where('itemsto_categories.categories_id',$id)
-                     ->select('menuitems.*','categories.categories_id','categories_description.categories_name','categoryTable.path as imgpath')
+                     ->select('menuitems.*','categories.categories_id','categories_description.categories_name')
                      ->get();
         //dd($menuitems);
         $tot_item= count($menuitems);
@@ -150,7 +129,6 @@ class HomeController extends Controller
         $categories= DB::table('categories')
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
-                    ->where('categories.parent_id',9)
                     ->get();
 
         return view('web.menu.menudetails',compact('menuitemsindividual','menuitems','tot_item','categories'));
