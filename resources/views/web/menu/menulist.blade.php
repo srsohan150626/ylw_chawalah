@@ -1,6 +1,7 @@
 @extends('web.layouts.master')
 @push('style')
     <style>
+     
       
       .transprnt{
         z-index: 1;
@@ -12,22 +13,23 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: url("{{asset('web/img/tableabove10001499.jpg')}}") center center;
+        z-index: -1;
+        background: url("{{asset('web/img/tableabove10001499.jpg')}}");
         /* width: 100%; */
         /* background-image: url("{{asset('web/img/tableabove10001499.jpg')}}"); */
-        height: 750px;
+        height: 100%;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
       }
       @media (min-width: 1200px) { 
         .transbg{
-          height: 1200px;
+          height: 100%;
         }
       }
       @media (min-width: 720px) { 
         .transbg{
-          height: 1076px;
+          height: 100%;
         }
       }
     </style>

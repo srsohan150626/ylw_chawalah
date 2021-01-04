@@ -16,16 +16,16 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        height: 750px;
+        height: 100%;
       }
       @media (min-width: 1200px) { 
         .transbg{
-          height: 1200px;
+          height: 100%;
         }
       }
       @media (min-width: 720px) { 
         .transbg{
-          height: 1076px;
+          height: 100%;
         }
       }
     </style>
