@@ -79,9 +79,7 @@
                                                     <label for="name" class="col-sm-2 col-md-3 control-label">Item Name<span style="color:red;">*</span></label>
                                                     <div class="col-sm-10 col-md-8">
                                                         {!! Form::text('item_name', '', array('class'=>'form-control', 'id'=>'item_name')) !!}
-                                                        <span class="help-block" style="font-weight: normal;font-size: 11px;margin-bottom: 0;">
-                                                            {{ trans('labels.ProductPriceText') }}
-                                                        </span>
+                                                     
                                                         <span class="help-block hidden">Enter Item Name In English</span>
                                                     </div>
                                                 </div>
@@ -107,7 +105,7 @@
                                             <div class="col-xs-12 col-md-6 ">
                                                 <div class="form-group">
                                                     <label for="name" class="col-sm-2 col-md-3 control-label">{{ trans('labels.Image') }}<span style="color:red;">*</span></label>
-                                                    {!! Form::file('image', old('image'), ['class'=>'input-file uniform_on', 'id'=>'fileInput', 'placeholder'=>'Select File']) !!}
+                                                        {!! Form::file('image', old('image'), ['class'=>' borderfile', 'id'=>'fileInput','placeholder'=>'Select File']) !!}
                                                 </div>
                                             </div>
 
