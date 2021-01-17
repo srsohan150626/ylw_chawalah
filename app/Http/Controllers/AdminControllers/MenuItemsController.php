@@ -56,7 +56,7 @@ class MenuItemsController extends Controller
 
     public function add()
     {
-        $allimage = $this->images->getimages();
+        //$allimage = $this->images->getimages();
         $result = array();
         $categories = Categories::sortable(['categories_id'=>'DESC'])
            ->leftJoin('categories_description','categories_description.categories_id', '=', 'categories.categories_id')
@@ -64,7 +64,7 @@ class MenuItemsController extends Controller
             ->get();
 
         //$categories = Categories::all();
-        $extras= Extraoptions::all();
+        //$extras= Extraoptions::all();
         //dd($categories);
         $result['categories'] = $categories;
         $result['extras'] = $extras;

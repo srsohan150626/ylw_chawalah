@@ -44,6 +44,12 @@
           </ul>
         </li>
 
+        <li class="treeview {{ Request::is('admin/background-image/display') ? 'active' : '' }}">
+          <a href="{{ URL::to('admin/background-image/display')}}">
+            <i class="fa fa-image"></i> <span>Background Image</span>
+          </a>
+        </li>
+
           <li class="treeview {{ Request::is('admin/admins') ? 'active' : '' }} {{ Request::is('admin/addadmins') ? 'active' : '' }} {{ Request::is('admin/editadmin/*') ? 'active' : '' }} {{ Request::is('admin/manageroles') ? 'active' : '' }} {{ Request::is('admin/addadminType') ? 'active' : '' }} {{ Request::is('admin/editadminType/*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-users" aria-hidden="true"></i>

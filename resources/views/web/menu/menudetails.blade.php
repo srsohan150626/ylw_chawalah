@@ -12,7 +12,7 @@
         bottom: 0;
         left: 0;
         right: 0;
-        background: url("{{asset('web/img/tableabove10001499.jpg')}}") center center;
+        background: url("{{URL::to('images/' . $background_image[0]->bg_image)}}") center center;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;

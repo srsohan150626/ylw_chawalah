@@ -49,6 +49,15 @@ Route::group(['prefix' => 'admin/categories', 'middleware' => 'auth', 'namespace
     Route::get('/filter', 'CategoriesController@filter');
 });
 
+Route::group(['prefix' => 'admin/background-image', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
+    Route::get('/display', 'BackgroundImageController@display');
+    Route::get('/add', 'BackgroundImageController@add');
+    Route::post('/add', 'BackgroundImageController@insert');
+    Route::get('/edit/{id}', 'BackgroundImageController@edit');
+    Route::post('/update', 'BackgroundImageController@update');
+    Route::post('/delete', 'BackgroundImageController@delete');
+});
+
 
 Route::group(['prefix' => 'admin/menuitems', 'middleware' => 'auth', 'namespace' => 'AdminControllers'], function () {
     Route::get('/display', 'MenuItemsController@display')->name('menuitems.display');

@@ -17,8 +17,12 @@ class HomeController extends Controller
         $hometext= DB::table('hometexts')
                 ->where('status',1)
                 ->get();
-       // dd($categories);
-       return view('web.index',compact('categories','hometext'));
+
+        $background_image= DB::table('background_image')
+                            ->where('status',1)
+                            ->get();
+    //dd($background_image);
+       return view('web.index',compact('categories','hometext','background_image'));
     }
 
     public function fastfood()
@@ -58,7 +62,11 @@ class HomeController extends Controller
         ->where('categories_id',$id)
         ->get();
 
-        return view('web.menu.menudetails',compact('menuitems','tot_item','categories','cat_name'));
+        $background_image= DB::table('background_image')
+                            ->where('status',1)
+                            ->get();
+
+        return view('web.menu.menudetails',compact('menuitems','tot_item','categories','cat_name','background_image'));
     }
 
     public function list()
@@ -72,7 +80,11 @@ class HomeController extends Controller
        ->where('status',1)
        ->get();
        
-       return view('web.list',compact('categories','hometext'));
+       $background_image= DB::table('background_image')
+       ->where('status',1)
+       ->get();
+
+       return view('web.list',compact('categories','hometext','background_image'));
     }
 
     public function menulist($id)
@@ -93,12 +105,16 @@ class HomeController extends Controller
         ->where('categories.categories_status',1)
         ->get();
 
+        $background_image= DB::table('background_image')
+       ->where('status',1)
+       ->get();
+
         if($tot_item==0)
         {
-            return view('web.menu.empty',compact('categories'));
+            return view('web.menu.empty',compact('categories','background_image'));
         }
         
-        return view('web.menu.menulist',compact('menuitems','tot_item','categories'));
+        return view('web.menu.menulist',compact('menuitems','tot_item','categories','background_image'));
     }
 
     public function menudetailsnew($id,$slug)
@@ -130,8 +146,11 @@ class HomeController extends Controller
                     ->leftjoin('categories_description','categories.categories_id','=','categories_description.categories_id')
                     ->where('categories.categories_status',1)
                     ->get();
+        $background_image= DB::table('background_image')
+        ->where('status',1)
+        ->get();
 
-        return view('web.menu.menudetails',compact('menuitemsindividual','menuitems','tot_item','categories'));
+        return view('web.menu.menudetails',compact('menuitemsindividual','menuitems','tot_item','categories','background_image'));
 
     }
 

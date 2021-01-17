@@ -2319,6 +2319,8 @@ return [
 'stocktypetext'=>'Please choose stock type IN/OUT',
 'in'=>'IN',
 'out'=>'OUT',
-'ExpressDelivery'=> 'Express Delivery'
+'ExpressDelivery'=> 'Express Delivery',
+'BackgroudimageupdatedMessage'=> 'Background Image Updated Successfully!',
+
 
 ];

@@ -14,7 +14,7 @@
         left: 0;
         right: 0;
         z-index: -1;
-        background: url("{{asset('web/img/tableabove10001499.jpg')}}");
+        background: url("{{URL::to('images/' . $background_image[0]->bg_image)}}");
         /* width: 100%; */
         /* background-image: url("{{asset('web/img/tableabove10001499.jpg')}}"); */
         height: 100%;
