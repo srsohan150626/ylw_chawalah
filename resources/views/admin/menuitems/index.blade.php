@@ -79,7 +79,7 @@
                                             <th>@sortablelink('categories_name', trans('labels.Category') )</th>
                                             <th>@sortablelink('item_name', trans('labels.Name') )</th>
                                             <th>{{ trans('labels.Additional info') }}</th>
-                                            <th>Ingredients</th>
+                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
@@ -108,7 +108,7 @@
                                                         <strong class="badge bg-light-green">New Item</strong><br>
                                                         @endif
                                                     </td>
-                                                    <td> {!! str_limit(strip_tags($item->ingredients), $limit = 40, $end = '...') !!} </td>
+                                                    <td> {!! str_limit(strip_tags($item->item_description), $limit = 40, $end = '...') !!} </td>
                                                     <td>
                                                       <a class="btn btn-primary" style="width: 100%; margin-bottom: 5px;" href="{{url('admin/menuitems/edit')}}/{{ $item->item_id }}">Edit</a>
                                                       </br>

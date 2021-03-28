@@ -12,6 +12,51 @@ right: 16px;
 font-size: 18px;
 z-index: 2;
 }
+.bevbottomleft {
+  position: fixed;
+  bottom: -17%;
+  left: 4%;
+  z-index: 9;
+  font-size: 18px;
+  } 
+  .bevbottomright {
+    position: fixed;
+    bottom: -17%;
+    right: 4%;
+    font-size: 18px;
+    z-index: 9;
+  }
+  .newbevbottomleft {
+    position: fixed;
+    bottom: -87%;
+    left: 4%;
+    z-index: 9;
+    font-size: 18px;
+    } 
+    .newbevbottomright {
+      position: fixed;
+      bottom: -87%;
+      right: 4%;
+      font-size: 18px;
+      z-index: 9;
+    }
+
+.beveragebtleft{
+  position: fixed;
+  bottom: -88%;
+  left: 3%;
+  z-index: 9;
+  font-size: 18px;
+}
+
+.beveragebtright {
+  position: fixed;
+  bottom: -88%;
+  right: 3%;
+  font-size: 18px;
+  z-index: 9;
+}
+
 .dttopright {
 position: fixed;
 bottom: 8px;
@@ -38,27 +83,34 @@ font-size: 18px;
 
 .toprightimg {
     margin: 0px 0px 0px 0px;
-    width: 50px; height: 50px;
+    width: 60px; height: 60px;
     display: block;
+}
+
+.topleftimg {
+  margin: 0px 0px 0px 0px;
+  width: 60px; height: 60px;
+  display: block;
+  border-radius: 50%;
 }
 .toprightimgbottom {
         margin: 0px 0px 0px 0px;
-        width: 50px; height: 50px;
+        width: 60px; height: 60px;
         display: block;
 }    
 .dttoprightimg {
   margin: 0px 0px 0px 0px;
-  width: 50px; height: 50px;
+  width: 60px; height: 60px;
   display: block;
 }
 .dttoprightimgbottom {
       margin: 0px 0px 0px 0px;
-      width: 50px; height: 50px;
+      width: 60px; height: 60px;
       display: block;
 } 
 .dttoprightimgbottomone{
       margin: 0px 0px 0px 0px;
-      width: 50px; height: 50px;
+      width: 60px; height: 60px;
       display: block;
 }
 .swipe {
@@ -82,7 +134,7 @@ font-size: 18px;
   float: left;
   width: 100%;
   position: relative;
-  margin-left: 20px;
+  margin-left: 5px;
   /* margin-top: 50px; */
 }
 
@@ -199,111 +251,96 @@ white-space: normal;
   to {-webkit-transform: rotateY(90deg);}
 } */
 .catcard{
-  width: 27rem;
-  opacity: 0.8;
+  width: 100%;
+  opacity: 0.9;
   /* top: 125px; */
   /* left: 16px; */
 }
 .menucardlist{
   width: 24rem;
   opacity: 0.8;
-  top: 200px;
+  top: 150px;
   left: 12px;
 }
+
 @media (min-width: 320px) { 
-  .catcard{
-    width: 24rem;
-    opacity: 0.8;
-    /* top: 125px; */
-    /* left: 17px; */
-  }
+
   .menucardlist{
     width: 18rem;
     opacity: 0.8;
-    top: 200px;
+    top: 150px;
     left: 16px;
   }
 }
 
 @media (min-width: 360px) { 
-  .catcard{
-    width: 25rem;
-    opacity: 0.8;
-    /* top: 125px; */
-    /* left: 16px; */
-  }
+ 
   .menucardlist{
     width: 21rem;
     opacity: 0.8;
-    top: 200px;
+    top: 150px;
     left: 16px;
   }
 }
 @media (min-width: 411px) { 
-  .catcard{
-    width: 28rem;
-    opacity: 0.8;
-    /* top: 125px; */
-    /* left: 17px; */
-  }
+
   .menucardlist{
     width: 24rem;
     opacity: 0.8;
-    top: 200px;
+    top: 150px;
+    left: 16px;
+  }
+}
+@media (min-width: 540px) { 
+
+  .menucardlist{
+    width: 24rem;
+    opacity: 0.8;
+    top: 150px;
     left: 16px;
   }
 }
 @media (min-width: 732px) { 
-  .catcard{
-    width: 50rem;
-    opacity: 0.7;
-    /* top: 125px; */
-    /* left: 14px; */
-  }
+ 
   .menucardlist{
     width: 46rem;
     opacity: 0.8;
-    top: 200px;
+    top: 150px;
     left: 16px;
   }
  } 
- @media (min-width: 720px) { 
-  .catcard{
-    width: 50rem;
-    opacity: 0.7;
-    /* top: 125px; */
-    /* left: 14px; */
-  }
-}
+
 
 @media (min-width: 992px) { 
-  .catcard{
-    width: 50rem;
-    opacity: 0.8;
-    /* top: 125px; */
-    /* left: 16px; */
-  }
+
   .menucardlist{
     width: 45rem;
     opacity: 0.8;
-    top: 200px;
+    top: 150px;
     left: 16px;
   }
  }
 
 
-@media (min-width: 1200px) { 
-  .catcard{
-    width: 85rem;
+
+ @media (min-width: 1024px) { 
+
+  .menucardlist{
+    width: 55rem;
     opacity: 0.8;
-    /* top: 125px; */
-    /* left: 50px;
-    right: 50px; */
+    top: 150px;
+    left: 16px;
   }
+ }
+
+
+
+@media (min-width: 1200px) { 
+
   .menucardlist{
     width: 70rem;
     opacity: 0.8;
-    top: 250px;
+    top: 200px;
     left: 50px;
     right: 50px;
   }
@@ -337,3 +374,159 @@ white-space: normal;
   display: inline-block;
   margin-left: 40px;
 }
+
+.newmenucatlist{
+    width: inherit;
+    opacity: 0.8;
+    margin-top: 15%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.beveragemenucatlist{
+  width: inherit;
+  opacity: 0.8;
+  margin-top: 58%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media (min-width: 1200px) {
+  .newmenucatlist{
+    width: inherit;
+    opacity: 0.8;
+    margin-top: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+  }
+
+.bkbtn{
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  z-index: 2;
+}
+.overlaymenu{
+  position: fixed;
+  top: 55px;
+  right: 3px;
+  z-index: 2;
+
+}
+
+div.scrollmenu {
+  background-color: #fff;
+  overflow:scroll;
+  white-space: nowrap;
+  width: 100%;
+  }
+
+  div.scrollmenu a {
+  display: inline-block;
+  color: #333;
+  text-align: center;
+  padding: 6px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 40px;
+  justify-content: center;
+  transform: translate3d(0, 0, 0);
+
+
+  }
+
+  a, .link{
+    cursor: pointer;
+    color: #D70F64;
+    transition: color .1s linear;
+}
+
+
+div.scrollmenu a:hover {
+  border-bottom: 3px solid #D70F64;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+div.scrollmenu span.active a {
+  border-bottom: 3px solid #D70F64;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.catfontsize{
+  font-size: smaller;
+}
+.content {
+padding: 16px;
+}
+
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1;
+}
+
+.sticky + .content {
+padding-top: 60px;
+}
+.circle{
+  display: inline-block;
+  border-radius: 60px;
+  box-shadow: 0px 0px 2px #888;
+  padding: 0.5em 0.6em;
+  height: 60px;
+  width: 60px;
+  background-color: white;
+  text-decoration: none;
+  color: #ffa707c7;
+}
+
+.menuTitle{
+      font-size: 1.4rem;
+      font-weight: 600;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      line-height: 1.33333;
+      color: #333;
+      text-transform: capitalize;
+      position: relative;
+}
+
+.itemName{
+  font-size: 0.9rem;
+  font-weight: 780;
+}
+.itemprice{
+  font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.25;
+    margin: 0;
+    color: #333;
+    text-align: right;
+}
+.itemdescription{
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.28571;
+  color: #707070;
+  margin-top: 4px;
+  max-height: calc( 1.28571 * 2 * 0.9rem);
+  overflow: hidden;
+}
+
+.textmenu{
+  color: #B38B55;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.custombtn{
+  border-color: #B38B55;
+  background-color: #fff;
+}
+

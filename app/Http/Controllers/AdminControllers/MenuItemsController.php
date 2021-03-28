@@ -67,9 +67,9 @@ class MenuItemsController extends Controller
         //$extras= Extraoptions::all();
         //dd($categories);
         $result['categories'] = $categories;
-        $result['extras'] = $extras;
+        //$result['extras'] = $extras;
 
-        return view("admin.menuitems.add")->with('result', $result)->with('allimage', $allimage);
+        return view("admin.menuitems.add")->with('result', $result);
 
     }
 
@@ -139,7 +139,7 @@ class MenuItemsController extends Controller
         $item_id = $request->products_id;
         $categories = DB::table('itemsto_categories')->where('item_id', $item_id)->delete();
         $categories = DB::table('menuitems')->where('item_id', $item_id)->delete();
-        $categories = DB::table('items_addons')->where('item_id', $item_id)->delete();
+       // $categories = DB::table('items_addons')->where('item_id', $item_id)->delete();
         return redirect()->back()->withErrors([Lang::get("labels.ProducthasbeendeletedMessage")]);
     }
 }

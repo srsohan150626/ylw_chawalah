@@ -7,13 +7,13 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       {{-- <span class="logo-mini" style="font-size:12px"><b>{{ trans('labels.admin') }}</b></span> --}}
       <div id="logosetting">
-        <img style="margin-left: -15px; margin-top: -3px;" src="{{asset('admin/images/admin-panel-logo.jpg')}}" alt="">
+        <img style="margin-left: -15px; margin-top: -3px;" src="{{asset('admin/images/new_yle_logo.png')}}" alt="">
       </div>
     </a>
  
       <!-- logo for regular state and mobile devices -->
       {{-- <span class="logo-lg"><b>{{ trans('labels.admin') }}</b></span> --}}
-      {{-- <img src="{{asset('admin/images/mediasoft-logo-mini.png')}}" alt=""> --}}
+      {{-- <img src="{{asset('admin/images/mini_logo.png')}}" alt=""> --}}
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
@@ -71,12 +71,12 @@
     var html="";
     if(counter%2!=0)
     {
-      html+=`<img style="margin-left: -15px;" src="{{asset('admin/images/mediasoft-logo-mini.png')}}" alt="">`
+      html+=`<img style="margin-left: -15px;" src="{{asset('admin/images/mini_logo.png')}}" alt="">`
       $("#logosetting").html(html);
       counter++;
     }else{
       html="";
-      html+=`<img style="margin-left: -15px;margin-top: -3px;" src="{{asset('admin/images/admin-panel-logo.jpg')}}" alt="">`
+      html+=`<img style="margin-left: -15px;margin-top: -3px;" src="{{asset('admin/images/new_yle_logo.png')}}" alt="">`
       $("#logosetting").html(html);
       counter++;
     }

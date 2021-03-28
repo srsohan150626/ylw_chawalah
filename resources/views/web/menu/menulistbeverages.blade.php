@@ -18,11 +18,11 @@
           background-repeat: no-repeat;
           background-size: cover;
         }
+	  
     </style>
 @endpush
 @section('contents')
   <div class="bg test">
-        {{-- <div class="transbg"></div> --}}
 
         
     {{-- <div class="dtbottomleft">
@@ -40,6 +40,11 @@
             <div class="overlay">
                 <a href="{{ url()->previous() }}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
             </div>
+
+            {{-- <div class="overlayhome">
+              <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+            </div> --}}
+
             <div class="card catcard" >
               <div class="card-body">
                 <h3 class="vrr" style="color: burlywood;"><b>{{ $menuitems[0]->categories_name }}</b></h3>
@@ -52,10 +57,13 @@
                             <span  style="color: burlywood;float: right;"><b>{{ $item->item_price}}</b></span> 
                             
                         </div>
-                        @if (isset($item->item_description))
+                        @if (isset($item->ingredients))
+                        <span class="vrr "> {!! str_limit(strip_tags($item->ingredients), $limit = 45, $end = '...') !!} </span>
+                        @else 
                         <span class="vrr "> {!! str_limit(strip_tags($item->item_description), $limit = 35, $end = '...') !!} </span>
                         @endif
                      
+
                     @endforeach
                     <br>
                     <br>
@@ -100,7 +108,7 @@
             </div>
           </div>
           @endforeach
-          @include('web.common.catlist')
+          @include('web.common.beveragecatlist')
 
         </div>
     </div>

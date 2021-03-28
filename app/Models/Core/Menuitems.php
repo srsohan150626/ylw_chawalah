@@ -31,6 +31,8 @@ class Menuitems extends Model
             $imageName = time().'-'.$request->image->getClientOriginalName();
             $request->image->move(public_path('images'), $imageName);
             //$item_image = $imageName;
+        } else{
+            $imageName= "";
         }
 
         $item_id = DB::table('menuitems')->insertGetId([

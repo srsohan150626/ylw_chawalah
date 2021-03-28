@@ -374,7 +374,7 @@ class AdminController extends Controller
 			$admintype_view = $roles[0]->admintype_view;
 			$admintype_create = $roles[0]->admintype_create;
 			$admintype_update = $roles[0]->admintype_update;
-			$admintype_delete = $roles[0]->language_delete;
+			//$admintype_delete = $roles[0]->language_delete;
 			$manage_admins_role = $roles[0]->manage_admins_role;
 
 		}else{
@@ -454,7 +454,7 @@ class AdminController extends Controller
 					'0'=>array('name'=>'admintype_view','value'=>$admintype_view),
 					'1'=>array('name'=>'admintype_create','value'=>$admintype_create),
 					'2'=>array('name'=>'admintype_update','value'=>$admintype_update),
-					'3'=>array('name'=>'admintype_delete','value'=>$admintype_delete),
+					//'3'=>array('name'=>'admintype_delete','value'=>$admintype_delete),
 					'4'=>array('name'=>'manage_admins_role','value'=>$manage_admins_role)
 					);
 

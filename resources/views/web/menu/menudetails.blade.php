@@ -5,7 +5,19 @@
       .transprnt{
         z-index: 1;
       }
-      .transbg{
+      .bg {
+          /* The image used */
+          background-image: url("{{URL::to('images/' . $background_image[0]->bg_image)}}");
+        
+          /* Full height */
+          height: 100%; 
+        
+          /* Center and scale the image nicely */
+          background-position: center;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+      /* .transbg{
         position: absolute;
         z-index: -1;
         top: 0;
@@ -27,12 +39,11 @@
         .transbg{
           height: 100%;
         }
-      }
+      } */
     </style>
 @endpush
 @section('contents')
-  <div class="transprnt test">
-        <div class="transbg"></div>
+  <div class="bg test">
 
         
     {{-- <div class="dtbottomleft">
@@ -54,9 +65,9 @@
               <a href="{{ url()->previous() }}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
           </div>
 
-          <div class="overlayone">
+         <!--  <div class="overlayone">
               <img class="dttoprightimgbottomone" src="{{asset('web/img/new___icons_02_1604995967.png')}}" />
-          </div>
+          </div> -->
 
           <div class="" style="top:0px;">
               {{-- <img class="imagesquare"  src="{{asset($menuitemsindividual[0]->imgpath)}}"/> --}}
@@ -74,7 +85,6 @@
               
               </div>
           </div>
-
           </div>
 
   @if ($tot_item>0)
@@ -85,12 +95,12 @@
         </div>
 
         <div class="overlayhome">
-          <a href="{{url('/menucategory')}}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
+          <a href="{{ url()->previous() }}"> <img class="dttoprightimgbottom" src="{{asset('web/img/new___icons_03_1604995966.png')}}" /></a>
         </div>
 
-        <div class="overlayone">
+        {{-- <div class="overlayone">
           <img class="dttoprightimgbottomone" src="{{asset('web/img/new___icons_02_1604995967.png')}}" />
-        </div>
+        </div> --}}
 
         <div class="" style="top:0px;">
           {{-- <img class="imagesquare"  src="{{asset($item->imgpath)}}"/> --}}
@@ -113,6 +123,7 @@
       </div>
       @endforeach
       @endif
+
       @include('web.common.catlist')
 
     </div>
@@ -129,6 +140,7 @@
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
+        infinite: true,
         coverflowEffect: {
           rotate: 50,
           stretch: 0,

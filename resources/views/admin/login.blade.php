@@ -8,11 +8,11 @@
 <div class="login-box">
   <div class="login-logo">
 
-  	<img style="width: 80%" src="{{asset('admin/images/mediasoft-logo.jpg')}}">
+  	<img style="width: 80%" src="{{asset('admin/images/ylw_logo.png')}}">
 
     <div style="
     font-size: 25px;
-"><b> Admin Panel Login</b></div>
+"></div>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
